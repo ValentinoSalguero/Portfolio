@@ -1,0 +1,30 @@
+TP asembler
+Funcionamiento del buscaminas (buscawachs nombre clave).
+
+El juego comienza con una pantalla de bienvenida y luego pide al usuario que elija un nivel de dificultad.
+El usuario puede seleccionar entre tres niveles: pequeño (9x9 con 10 minas), medio (16x16 con 30 minas) y 
+grande (16x16 con 40 minas).
+
+Una vez que el usuario ha elegido un nivel, el juego inicializa el tablero de juego. 
+El tablero de juego se representa como una matriz bidimensional de celdas, donde cada celda puede estar en 
+uno de tres estados: cerrada, marcada con una bandera o abierta. Las celdas cerradas representan minas que
+el usuario aún no ha descubierto, las celdas marcadas con una bandera representan minas que el usuario ha 
+marcado como posibles minas, y las celdas abiertas representan celdas que el usuario ha seleccionado para 
+abrir.
+
+El juego utiliza un algoritmo de generación de números aleatorios para colocar minas en el tablero de 
+juego. Para cada celda en el tablero, el juego calcula un número aleatorio y si el número es menor que el
+número de minas en el tablero, la celda se convierte en una mina.
+
+El juego permite al usuario seleccionar celdas para abrirlas y marcadas con una bandera.
+Cuando el usuario selecciona una celda para abrir, el juego verifica si la celda contiene una mina. 
+Si la celda contiene una mina, el juego termina y muestra un mensaje de "Perdiste". Si la celda no contiene
+una mina, el juego abre la celda y muestra el número de minas adyacentes a la celda.
+
+El juego también permite al usuario marcar celdas con una bandera. Cuando el usuario marca una celda con
+una bandera, el juego verifica si el número de minas marcadas con una bandera es igual al número de minas
+adyacentes a la celda. Si es así, el juego abre todas las celdas adyacentes a la celda.
+
+Finalmente, el juego termina cuando el usuario ha abierto todas las celdas que no contienen una mina, o 
+cuando el usuario ha seleccionado una celda que contiene una mina. Si el usuario ha abierto todas las celdas
+que no contienen una mina, el juego muestra un mensaje de "Ganaste".
