@@ -1,0 +1,30 @@
+import wollok.game.*
+import world.*
+import graphics.*
+import player.*
+import enemigos.*
+import objects.*
+import gui.*
+import audio.*
+
+program main {
+	game.width(15)
+	game.height(15)
+
+	world.generateWorld(16)
+	
+    game.title("DOOMmies v0.0.1dev alpha early access zafiro ultra brillante fuxia remix")
+
+
+	
+	var player = new Player()
+	game.addVisual(player)
+	world.player(player)
+	
+	gui.player(player)
+	gui.init()
+	
+	//keyboard.space().onPressDo({game.start()})
+	
+	game.start()
+}
