@@ -15,10 +15,6 @@ object world {
 	var tipos_habitacion = [
 			HabitacionPowerup,
 			HabitacionPowerup,
-			HabitacionPowerup,
-			HabitacionPowerup,
-			HabitacionPowerup,
-			HabitacionPowerup,
 			HabitacionPowerup
 		]
 	
@@ -310,6 +306,11 @@ object HabitacionNormal inherits TipoHabitacion {
 }
 object HabitacionPlayerSpawn inherits TipoHabitacion {
 	override method song() = -1
+	override method templates() = [
+		new Template(entradas = [
+			[65535, new Position(x = 5, y = 5)]
+		])
+	]
 }
 object HabitacionJefe inherits TipoHabitacion {
 	override method song() = 2
@@ -356,6 +357,7 @@ object EntityIdSystem {
 		if (id == 1501) {return new BotiquinP()}
 		if (id == 1502) {return new BotiquinM()}
 		if (id == 1503) {return new BotiquinG()}
+		if (id == 65535) {return new Tutorial()}
 		return null
 	}
 }
@@ -396,13 +398,14 @@ class Puerta{
 }
 
 object gameOver {
-	const goalMsg = "!!! GAME OVER !!!"
-	const reviveMsg = "Pulse espacio para revivir"
-	const msg = ["!", "!", "!", " ", "G", "A", "M", "E", " ", "O", "V", "E", "R", " ", "!", "!", "!"]
+	const goalMsg = "!!! GAME OVER !!! Espacio para revivir"
+	const reviveMsg = "Espacio para revivir"
+	const msg = ["!", "!", "!", " ", "G", "A", "M", "E", " ", "O", "V", "E", "R", " ", "!", "!", "!", " ", "E", "s", "p", "a", "c", "i", "o", " ", "p", "a", "r", "a", " ", "r", "e", "v", "i", "v", "i", "r"]
 	var strMsg = ""
 	var charIndex = 0
 	
 	method position() = game.center()
+	method textColor() = "FFFFFFFF"
 	method text() = strMsg
 	
 	method animacionGameOver() {
@@ -417,11 +420,13 @@ object gameOver {
 			charIndex++
 			game.schedule(100, {self.animarMensaje()})
 		} else {
-			strMsg += " " + reviveMsg
+			//strMsg += reviveMsg 
 		}
-	}
-	
+	}	
 }
+
+
+
 object win {
 	const goalMsg = "!!! GANASTE !!!"
 	const msg = ["!", "!", "!", " ", "G", "A", "N", "A", "S", "T", "E", " ", "!", "!", "!"]
@@ -430,6 +435,7 @@ object win {
 	
 	method position() = game.center()
 	method text() = strMsg
+	method textColor() = "FFFFFFFF"
 	
 	method animacionGameOver() {
 		charIndex = 0
@@ -442,8 +448,21 @@ object win {
 			strMsg += msg.get(charIndex)
 			charIndex++
 			game.schedule(100, {self.animarMensaje()})
+		}
 	}
 	
+	method collide(p) {}
 }
 
-
+class Tutorial {
+	const property entityType = "hud"
+	var property position = game.center()
+	method image() = "sprites/tutorial/tutorial.png"
+	method activar() {
+		game.addVisual(self)
+	}
+	method desactivar() {
+		game.removeVisual(self)
+	}
+	method collide(p) {}
+}

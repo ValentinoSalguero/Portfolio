@@ -110,13 +110,17 @@ class Player {
 	}
 	
 	method revivir(){
-		vida = 150
+		if(not vivo){
+			vida = 150
 		vivo = true
 		armadura = 100
 		puedeMoverse = true
 		termino = false
 		position = game.at(1, 2)
 		game.removeVisual(gameOver)
+		} else {
+			null
+		}
 	}
 	
 	method collide(cosa){}

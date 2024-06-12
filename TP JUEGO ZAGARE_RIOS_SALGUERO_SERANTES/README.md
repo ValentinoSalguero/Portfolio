@@ -4,15 +4,15 @@
 ## Equipo de desarrollo
 
 - Rios Lisandro
-- Ulises Zagare
-- Valentino Salguero
+- Zagare Ulises
+- Salguero Valentino
 - Serantes Elias
 
 ## Descripción
 
 Este repositorio tiene como objetivo crear un juego en el lenguaje Wollok para la materia Algoritmos 1 de la carrera de Tecnicatura en Programación Informática de la Universidad Nacional de San Martín (UNSAM).
 
-El juego está inspirado en el conocido título The Binding of Isaac. Se trata de un juego de acción RPG con fuertes elementos de tipo Roguelike, en el cual los niveles se generan aleatoriamente. Pero a diferencia del mismo ESTE TIENE LA SKIN DEL DOOM!!!
+El juego está inspirado en el conocido título The Binding of Isaac. Se trata de un juego de acción RPG con fuertes elementos de tipo Roguelike, en el cual los niveles se generan aleatoriamente. Pero a diferencia del mismo, ¡¡¡ÉSTE TIENE LA SKIN DEL DOOM!!!
 
 ## Capturas
 ![This is an alt text.](/assets/capturas/1.png")

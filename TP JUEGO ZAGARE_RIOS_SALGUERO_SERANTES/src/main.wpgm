@@ -7,24 +7,17 @@ import objects.*
 import gui.*
 import audio.*
 
+// Definición de la clase principal "main"
 program main {
-	game.width(15)
-	game.height(15)
-
-	world.generateWorld(16)
-	
-    game.title("DOOMmies v0.0.1dev alpha early access zafiro ultra brillante fuxia remix")
-
-
-	
-	var player = new Player()
-	game.addVisual(player)
-	world.player(player)
-	
-	gui.player(player)
-	gui.init()
-	
-	//keyboard.space().onPressDo({game.start()})
-	
-	game.start()
+	game.width(15) // Configura el ancho del juego a 15 unidades
+	game.height(15) // Configura la altura del juego a 15 unidades
+	world.generateWorld(16) // Genera el mundo con un tamaño de 16 unidades
+	game.title("DOOMmies v0.0.1dev alpha early access zafiro ultra brillante fuxia remix")
+		// Título del juego
+	var player = new Player() // Crea una instancia de la clase "Player"
+	game.addVisual(player) // Agrega al jugador como elemento visual al juego
+	world.player(player) // Establece al jugador como el personaje del mundo
+	gui.player(player) // Configura la interfaz gráfica para el jugador
+	gui.init() // Inicializa la interfaz gráfica
+	game.start() // Inicia el juego
 }
