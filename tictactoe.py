@@ -1,4 +1,4 @@
-import pygame
+import pygames
 import sys
 
 # Inicialización de Pygame y el módulo de música
