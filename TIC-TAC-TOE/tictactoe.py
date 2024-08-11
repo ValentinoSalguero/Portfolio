@@ -148,7 +148,6 @@ def reset_game():
     global board, turn, game_over
     # Reinicia el estado del juego
     board = [["" for _ in range(3)] for _ in range(3)]  # Reinicia el tablero
-    turn = 'X'  # Reinicia el turno
     game_over = False  # Marca el juego como no terminado
     display_board()  # Muestra el tablero reiniciado
 
@@ -161,7 +160,6 @@ def return_to_menu():
     mode_selected = False  # Marca que no se ha seleccionado un modo
     current_music = background_music  # Guarda la música del menú
     board = [["" for _ in range(3)] for _ in range(3)]  # Reinicia el tablero
-    turn = 'X'  # Reinicia el turno
     game_over = False  # Marca el juego como no terminado
 
 background, background_music = menu()  # Inicializa la pantalla del menú
@@ -173,6 +171,7 @@ while not game_over:
         screen.blit(background, (0, 0))  # Dibuja el fondo del menú
         pygame.display.update()  # Actualiza la pantalla
         waiting_for_key = True
+        turn = 'X'
         while waiting_for_key:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -227,47 +226,3 @@ while not game_over:
         pygame.display.update()  # Actualiza la pantalla
 
 pygame.quit()  # Cierra Pygame al finalizar el juego
-
-"""
-def enter_move(board):
-    # La función acepta el estado actual del tablero y pregunta al usuario acerca de su movimiento,  
-    # verifica la entrada y actualiza el tablero acorde a la decisión del usuario.
-    while True:
-        try:
-            cell_number = int(input("Ingresa tu movimiento (1-9): "))
-            if cell_number < 1 or cell_number > 9:
-                print("Número fuera del rango permitido\nInténtalo de nuevo")
-                continue
-        except ValueError:
-            print("Entrada inválida")
-            continue
-
-        free_fields = make_list_of_free_fields(board)
-        if not any(cell_number == board[row][col] for row, col in free_fields):
-            print("Número de celda no encontrado o ya está ocupado\nInténtalo de nuevo")
-            continue
-
-        for row in range(3):
-            for col in range(3):
-                if board[row][col] == cell_number:
-                    if board[row][col] not in ('X', 'O'):
-                        board[row][col] = 'O'
-                        display_board(board)
-                        if victory_for(board, 'O'):
-                            print("Has ganado\n¡Felicidades!")
-                        elif is_board_full(board):
-                            print("El tablero está lleno\nEs un empate.")
-                        else:
-                            draw_move(board)
-                        return  # Salir de la función después de un movimiento válido
-
-def make_list_of_free_fields(board):
-    # La función examina el tablero y construye una lista de todos los cuadros vacíos. 
-    # La lista está compuesta por tuplas, cada tupla es un par de números que indican la fila y columna.
-    free_fields = []
-    for row in range(3):
-        for col in range(3):
-            if board[row][col] not in ('X', 'O'):
-                free_fields.append((row, col))
-    return free_fields
-"""
