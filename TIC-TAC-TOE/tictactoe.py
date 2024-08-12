@@ -31,6 +31,7 @@ x = None  # Imagen de 'X'
 background = None  # Imagen de fondo del juego
 clock = pygame.time.Clock()  # Reloj para controlar los FPS
 
+
 def menu():
     global background, current_music
     # Cargar y transformar la imagen del menú
@@ -119,33 +120,61 @@ def is_board_full():
             return False  # Si hay alguna celda vacía, el tablero no está lleno
     return True
 
-def show_result_image(result_text):
+def show_result_image():
     # Muestra la imagen del resultado del juego
     result_image = pygame.image.load('TIC-TAC-TOE/assets/kyoko.png')  # Carga la imagen del resultado
     result_image = pygame.transform.scale(result_image, (450, 450))  # Redimensiona la imagen
     return result_image
 
-def handle_result_screen(result_text):
-    # Maneja la pantalla de resultado después de que el juego termina
-    display_board()  # Actualiza la pantalla con el estado del tablero final
-    screen.blit(show_result_image(result_text), (0, 0))  # Muestra la imagen del resultado
+def handle_result_screen(result_text, turns):
+    display_board()  # Dibuja el estado final del tablero
+
+    # Configurar la fuente y el color del texto
+    font = pygame.font.Font(None, 74)
+    text_surface = font.render(result_text, True, (255, 255, 255))
+
+    # Determinar la imagen a mostrar
+    if turns:  # Si hay un turno ganador, selecciona la imagen
+        image = x if turns == 'X' else circle
+        # Redimensionar la imagen
+        scaled_width = image.get_width() * 0.5  # Por ejemplo, escala al 80% del tamaño original
+        scaled_height = image.get_height() * 0.5
+        image = pygame.transform.scale(image, (int(scaled_width), int(scaled_height)))
+    else:  # Si es empate, no mostramos imagen
+        image = None
+
+    # Crear superficie combinada de texto e imagen
+    if image:
+        combined_width = text_surface.get_width() + image.get_width() + 10
+        combined_height = max(text_surface.get_height(), image.get_height())
+        combined_surface = pygame.Surface((combined_width, combined_height), pygame.SRCALPHA)
+        combined_surface.blit(text_surface, (0, (combined_height - text_surface.get_height()) // 2))
+        combined_surface.blit(image, (text_surface.get_width() + 10, (combined_height - image.get_height()) // 2))
+    else:
+        combined_surface = text_surface
+
+    # Centramos la superficie combinada en la parte superior de la pantalla
+    text_rect = combined_surface.get_rect(midtop=(screen.get_width() / 2, 20))
+    screen.blit(combined_surface, text_rect)
+
     pygame.display.update()  # Actualiza la pantalla
 
+    # Manejo de eventos
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()  # Cierra el juego si se recibe el evento de cierre
+                sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
-                    reset_game()  # Reinicia el juego si se presiona la tecla 'R'
+                    reset_game()
                     return
                 elif event.key == pygame.K_m:
-                    return_to_menu()  # Vuelve al menú si se presiona la tecla 'M'
+                    return_to_menu()
                     return
                 elif event.key == pygame.K_ESCAPE:
-                        pygame.quit()
-                        sys.exit()  # Termina el juego si se presiona la tecla 'ESC'
+                    pygame.quit()
+                    sys.exit()
 
 def reset_game():
     global board, turn, game_over
@@ -216,9 +245,9 @@ while not game_over:
                         pygame.display.update()  # Actualiza la pantalla
                         game_is_over = victory_for()  # Verifica si el juego ha terminado
                         if game_is_over:
-                            handle_result_screen(f'{turn}_wins')  # Muestra la pantalla de resultado de victoria
+                            handle_result_screen(f'¡GANÓ!', turn)  # Muestra la pantalla de resultado de victoria
                         elif is_board_full():
-                            handle_result_screen('draw')  # Muestra la pantalla de resultado de empate
+                            handle_result_screen('¡EMPATE!', None)  # Muestra la pantalla de resultado de empate
                         else:
                             turn = 'O' if turn == 'X' else 'X'  # Cambia el turno
             elif event.type == pygame.KEYDOWN:
