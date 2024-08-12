@@ -30,6 +30,7 @@ circle = None  # Imagen de 'O'
 x = None  # Imagen de 'X'
 background = None  # Imagen de fondo del juego
 clock = pygame.time.Clock()  # Reloj para controlar los FPS
+game_mode = 0
 
 
 def menu():
@@ -121,13 +122,21 @@ def is_board_full():
     return True
 
 def show_result_image():
-    # Muestra la imagen del resultado del juego
-    result_image = pygame.image.load('TIC-TAC-TOE/assets/kyoko.png')  # Carga la imagen del resultado
+    if game_mode == 1:
+        # Muestra la imagen del resultado del juego
+        result_image = pygame.image.load('TIC-TAC-TOE/assets/default_mode_result_background.png').convert_alpha()  # Carga la imagen del resultado
+    else:
+        result_image = pygame.image.load('TIC-TAC-TOE/assets/rcg_mode_result_background.png').convert_alpha()  # Carga la imagen del resultado
     result_image = pygame.transform.scale(result_image, (450, 450))  # Redimensiona la imagen
     return result_image
 
 def handle_result_screen(result_text, turns):
     display_board()  # Dibuja el estado final del tablero
+
+    bg = show_result_image()
+    screen.blit(bg, (0, 0))
+
+    pygame.display.update()  # Actualiza la pantalla
 
     # Configurar la fuente y el color del texto
     font = pygame.font.Font(None, 74)
@@ -216,6 +225,7 @@ while not game_over:
                         background, circle, x, current_music = default_mode()  # Configura el modo predeterminado
                         menu_displayed = False  # Oculta el menú
                         mode_selected = True  # Marca que se ha seleccionado un modo
+                        game_mode = 1
                         waiting_for_key = False
                     elif event.key == pygame.K_2:
                         stop_current_music()  # Detiene la música actual
