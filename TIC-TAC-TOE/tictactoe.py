@@ -143,12 +143,16 @@ def handle_result_screen(result_text):
                 elif event.key == pygame.K_m:
                     return_to_menu()  # Vuelve al menú si se presiona la tecla 'M'
                     return
+                elif event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()  # Termina el juego si se presiona la tecla 'ESC'
 
 def reset_game():
     global board, turn, game_over
     # Reinicia el estado del juego
     board = [["" for _ in range(3)] for _ in range(3)]  # Reinicia el tablero
     game_over = False  # Marca el juego como no terminado
+    turn = 'X'
     display_board()  # Muestra el tablero reiniciado
 
 def return_to_menu():
@@ -161,17 +165,17 @@ def return_to_menu():
     current_music = background_music  # Guarda la música del menú
     board = [["" for _ in range(3)] for _ in range(3)]  # Reinicia el tablero
     game_over = False  # Marca el juego como no terminado
+    turn = 'X'
 
 background, background_music = menu()  # Inicializa la pantalla del menú
 
 while not game_over:
     clock.tick(30)  # Controla la velocidad de actualización de la pantalla (30 FPS)
-
+    
     if menu_displayed:
         screen.blit(background, (0, 0))  # Dibuja el fondo del menú
         pygame.display.update()  # Actualiza la pantalla
         waiting_for_key = True
-        turn = 'X'
         while waiting_for_key:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -215,7 +219,8 @@ while not game_over:
                             handle_result_screen(f'{turn}_wins')  # Muestra la pantalla de resultado de victoria
                         elif is_board_full():
                             handle_result_screen('draw')  # Muestra la pantalla de resultado de empate
-                        turn = 'O' if turn == 'X' else 'X'  # Cambia el turno
+                        else:
+                            turn = 'O' if turn == 'X' else 'X'  # Cambia el turno
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
