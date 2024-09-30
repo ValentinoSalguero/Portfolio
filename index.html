@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <title>Ejercicio</title>
+</head>
+<body>
+    <header>
+        <img width="250" height="250" src="https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/11/30.jpg" alt="Logo de mi sitio web">
+        <h1>Ejercicio</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido</h2>
+            <p>Esto es un ejercicio para aprender a escribir la estructura básica de un documento HTML</p>
+        </section>
+        <section id="productos">
+            <h3>Productos</h3>
+            <p>Aquí encontrarás nuestros productos</p>
+        </section id="galería">
+        <section>
+            <h4>Nuestra galería</h4>
+            <img width="560" height="315" src="https://economis.com.ar/wp-content/uploads/2022/09/Alfajores-Guachoo-4-1024x838.jpg" alt="Imagen representativa">
+            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=YUJB6FciOog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section id="contacto">
+            <h3>Contacto</h3>
+            <form action="https://formspree.io/your_email_here" method="POST">
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="_replyto" required><br><br>
+
+                <label for="mensaje">Mensaje</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
+            
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ejercicio</p>
+    </footer>
+</body>
+</html>
