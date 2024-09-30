@@ -1,0 +1,175 @@
+https://www.tinkercad.com/things/5xIy7BX8YMK-copy-of-morse-final?sharecode=9w41O4A-ard6NMzQo1zIxbo9TSebpvns3R0UvIaJu7s
+
+CODE: 
+#include <LiquidCrystal.h>
+//Declaramos variales 
+int vector[4]={0,0,0,0};
+int botonInicio=10;
+int botonFin=7;
+int buzzer=8;
+int inicio=0;
+int fin=0;
+float tiempo=0;
+long T1=0;
+long T2=0;
+float T3=0;
+int i=0;
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin(16, 2);
+  pinMode(botonInicio, INPUT_PULLUP);
+  pinMode(buzzer, OUTPUT);
+  pinMode(botonFin, INPUT_PULLUP);
+}
+void loop() {
+  
+  inicio=digitalRead(botonInicio);
+  
+  if (inicio==HIGH){
+    tiempo=cuantoTiempo();
+    if(tiempo>0.05 && tiempo<0.3){vector[i]=1;
+                  i=i+1;}
+    if(tiempo>0.3){vector[i]=2;
+                   i=i+1;}
+  }
+  
+  fin=digitalRead(botonFin);
+  
+  if(fin==HIGH){
+    EscribirLetra();
+    i=0;
+    vector[0]=0; vector[1]=0; vector[2]=0; vector[3]=0;
+  }
+} //FIN LOOP
+
+float cuantoTiempo() {
+  inicio=digitalRead(botonInicio);
+  if(inicio==HIGH){
+    T1=millis(); //T inicial
+    while(inicio==HIGH){
+      digitalWrite(buzzer,HIGH);
+      T2=millis(); //T Final
+      inicio=digitalRead(botonInicio);
+      }
+    digitalWrite(buzzer,LOW);
+    T3=T2-T1; //Delta Tiempo
+    T3=T3/1000; //CONVERSION A SEGUNDOS 
+    Serial.println(T3);
+  	}
+  return T3;
+  T3=0;
+  }
+
+void EscribirLetra() { //1=punto 2=raya 0=nada
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==0)  && (vector[3]==0) ){
+    lcd.print("A"); 
+    delay(600);
+  	}
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==1) ){
+    lcd.print("B");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==2) && (vector[3]==1) ){
+    lcd.print("C");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==0) ){
+    lcd.print("D");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==0)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print("E");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==2) && (vector[3]==1) ){
+    lcd.print("F");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==2)  && (vector[2]==1) && (vector[3]==0) ){
+    lcd.print("G");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==1) ){
+    lcd.print("H");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print("I");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==2) && (vector[3]==2) ){
+    lcd.print("J");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==2) && (vector[3]==0) ){
+    lcd.print("K");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==1) && (vector[3]==1) ){
+    lcd.print("L");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==2)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print("M");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print("N");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==2)  && (vector[2]==2) && (vector[3]==0) ){
+    lcd.print("O");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==2) && (vector[3]==1) ){
+    lcd.print("P");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==2)  && (vector[2]==1) && (vector[3]==2) ){
+    lcd.print("Q");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==1) && (vector[3]==0) ){
+    lcd.print("R");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==0) ){
+    lcd.print("S");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==0)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print("T");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==2) && (vector[3]==0) ){
+    lcd.print("U");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==2) ){
+    lcd.print("V");
+    delay(600);
+    }
+  if((vector[0]==1)  && (vector[1]==2)  && (vector[2]==2) && (vector[3]==0) ){
+    lcd.print("W");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==1) && (vector[3]==0) ){
+    lcd.print("X");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==1)  && (vector[2]==2) && (vector[3]==2) ){
+    lcd.print("Y");
+    delay(600);
+    }
+  if((vector[0]==2)  && (vector[1]==2)  && (vector[2]==1) && (vector[3]==1) ){
+    lcd.print("Z");
+    delay(600);
+    }
+  if((vector[0]==0)  && (vector[1]==0)  && (vector[2]==0) && (vector[3]==0) ){
+    lcd.print(" ");
+    delay(600);
+    }
+}
