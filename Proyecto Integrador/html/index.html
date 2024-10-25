@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Proyecto Integrador/css/styles.css" rel="stylesheet">
+    <!-- Enlace a Google Fonts para la fuente Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Cambiar el título de la página -->
+    <title>Título de la Página</title> <!-- Título que aparecerá en la pestaña del navegador -->
+</head>
+<body>
+    <header>
+        <!-- Cambiar el nombre del proyecto -->
+        <h1>Nombre del Proyecto</h1> <!-- Encabezado principal del sitio -->
+        <button id="toggle-mode">Modo Oscuro</button> <!-- Botón para activar/desactivar el modo oscuro -->
+        <nav>
+            <ul>
+                <li><a href="#productos">Productos</a></li> <!-- Enlace a la sección de productos -->
+                <li><a href="#reseñas">Reseñas</a></li> <!-- Enlace a la sección de reseñas -->
+                <li><a href="#contacto">Contacto</a></li> <!-- Enlace a la sección de contacto -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="productos">
+            <h2>Productos</h2> <!-- Título de la sección de productos -->
+            <!-- Agregar cards -->
+        </section>
+
+        <section id="reseñas">
+            <h2>Reseñas</h2> <!-- Título de la sección de reseñas -->
+            <!-- Agregar grid -->
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2> <!-- Título de la sección de contacto -->
+            <!-- Agregar mi id de formspree -->
+            <form action="https://formspree.io/f/{tu_id}" method="POST"> <!-- Formulario de contacto que envía datos a Formspree -->
+                <label for="nombre">Nombre</label> <!-- Etiqueta para el campo de nombre -->
+                <input type="text" id="nombre" name="nombre" required> <!-- Campo de entrada para el nombre -->
+
+                <label for="apellido">Apellido</label> <!-- Etiqueta para el campo de apellido -->
+                <input type="text" id="apellido" name="apellido" required> <!-- Campo de entrada para el apellido -->
+
+                <label for="email">Correo Electrónico</label> <!-- Etiqueta para el campo de correo electrónico -->
+                <input type="email" id="email" name="email" required> <!-- Campo de entrada para el correo electrónico -->
+
+                <label for="mensaje">Mensaje:</label> <!-- Etiqueta para el campo de mensaje -->
+                <textarea id="mensaje" name="mensaje" required></textarea> <!-- Área de texto para el mensaje -->
+
+                <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Valentino Salguero. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+</body>
+</html>

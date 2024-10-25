@@ -1,0 +1,77 @@
+/* Estilos generales sin modo oscuro */
+body {
+    font-family: 'Roboto', sans-serif; /* Establece la fuente del cuerpo */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+}
+
+header {
+    background-color: #4e4e4e; /* Fondo oscuro para el encabezado */
+    color: white; /* Texto en blanco */
+    padding: 20px; /* Espaciado interno */
+}
+
+nav ul {
+    list-style: none; /* Elimina puntos de la lista */
+    padding: 0; /* Elimina padding de la lista */
+}
+
+nav ul li {
+    display: inline; /* Muestra elementos de lista en línea */
+    margin-right: 15px; /* Margen a la derecha */
+}
+
+nav ul li a {
+    color: white; /* Color de texto de enlaces */
+    text-decoration: none; /* Elimina subrayado */
+}
+
+section {
+    padding: 20px; /* Espaciado interno para secciones */
+}
+
+footer {
+    background-color: #4e4e4e; /* Fondo oscuro para el pie de página */
+    color: white; /* Texto en blanco */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+}
+
+form {
+    display: flex; /* Usa diseño flexible */
+    flex-direction: column; /* Organiza elementos en columna */
+}
+
+form label, form input, form textarea {
+    margin: 10px 0; /* Margen vertical */
+}
+
+form button {
+    background-color: #007bff; /* Fondo azul para el botón */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    padding: 10px; /* Espaciado interno */
+    cursor: pointer; /* Cursor en forma de mano */
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #2c2c2c; /* Fondo oscuro más claro que el header y footer */
+    color: white; /* Texto claro */
+}
+
+header.dark-mode {
+    background-color: #1a1a1a; /* Fondo más oscuro para el encabezado */
+}
+
+footer.dark-mode {
+    background-color: #1a1a1a; /* Fondo más oscuro para el pie de página */
+}
+
+nav ul li a.dark-mode {
+    color: white; /* Color blanco para enlaces en modo oscuro */
+}
+
+form button.dark-mode {
+    background-color: #0056b3; /* Azul más oscuro para el botón en modo oscuro */
+}
