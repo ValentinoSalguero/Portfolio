@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/Proyecto Integrador/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Contacto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.1/css/boxicons.min.css">
+    <title>productos</title>
 </head>
 <body>
     <header>
-        <h1>Nombre del Proyecto</h1>
-        <button id="toggle-mode">Modo Oscuro</button> <!-- Botón para activar/desactivar el modo oscuro -->
+        <h1>Dulce Alfajor</h1>
+        <button id="toggle-mode">Modo Oscuro</button>
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página principal -->
+                <li><a href="../index.html">Inicio</a></li>
                 <li><a href="reseñas.html">Reseñas</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
@@ -22,13 +23,170 @@
 
     <main>
         <section id="productos">
-            <h2>Productos</h2> <!-- Título de la sección de productos -->
-            <!-- Agregar cards -->
+            <h2>Productos</h2>
+            <div class="container-products">
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 00.png" alt="Alfajor Deuble Negro"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Deuble Negro</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-0"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 01.png" alt="Alfajor Simple Night"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Simple Night</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-1"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 02.png" alt="Alfajor Genio"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Genio</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-2"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 03.png" alt="Alfajor Guachoo Blanco"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Guachoo Blanco</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-3"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 04.png" alt="Alfajor Happy Food"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Happy Food</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-4"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 05.png" alt="Alfajor Guolis"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Guolis</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-5"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 06.png" alt="Alfajor Chachafaz"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Cachafaz</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-6"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 07.png" alt="Alfajor Lule Muu"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Lule Muu</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-7"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 08.png" alt="Alfajor Oreo Trilogía"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Oreo Trilogía</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-8"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 09.png" alt="Alfajor Full Maní"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Full Maní</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-9"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 10.png" alt="Alfajor Café Martínez Blanco"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Café Martínez Blanco</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-10"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+                <div class="card-product flex">
+                    <div class="container-img">
+                        <a href="#"><img src="/Proyecto Integrador/images/Photo 11.png" alt="Alfajor Smams"></a>
+                    </div>
+                    <div class="card-detalles grid">
+                        <h3 class="card-product_title">Alfajor Smams</h3>
+                        <p>$ <span class="precio">10.000</span></p>
+                        <div class="botonera flex">
+                            <i class='bx bx-minus'></i><span class="number">0</span><i class='bx bx-plus'></i>
+                        </div>
+                        <button class="btn-add btn btn_form" data-prod="prod-11"><i class='bx bx-cart-add'></i>COMPRAR</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-
+    
     <footer>
-        <p>&copy; 2024 Valentino Salguero. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

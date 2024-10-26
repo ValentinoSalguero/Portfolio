@@ -75,3 +75,88 @@ nav ul li a.dark-mode {
 form button.dark-mode {
     background-color: #0056b3; /* Azul más oscuro para el botón en modo oscuro */
 }
+
+/* Estilos para la sección de productos */
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espacio entre elementos */
+}
+
+.container-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajuste automático con un ancho mínimo */
+    grid-template-rows: repeat(3, auto); /* 3 filas automáticas */
+    gap: 20px; /* Espacio entre las cards */
+    background-color: lightblue; /* Fondo de la sección de productos */
+    justify-items: center; /* Centra las cards en cada celda */
+    padding: 20px; /* Espaciado interno */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+.card-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; /* Ancho ajustado de cada card */
+    padding: 15px; /* Espaciado interno de la card */
+    border: 1px solid #ddd; /* Borde de la card */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: #fff; /* Fondo blanco para la card */
+    text-align: center; /* Centra el texto en la card */
+}
+
+.container-img img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 120px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.card-product_title {
+    margin-top: 10px; /* Espaciado superior para el título */
+    font-size: 1.2em; /* Tamaño de fuente del título */
+}
+
+/* Estilos para el botón de añadir */
+.btn-add {
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    display: flex; /* Usar flexbox */
+    justify-content: center; /* Centrar contenido */
+    align-items: center; /* Alinear verticalmente */
+    background-color: #5b4caf; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    width: 100%; /* Botón ocupa todo el ancho de la card */
+}
+
+.btn-add:hover {
+    background-color: #4574a0; /* Color de fondo al pasar el mouse */
+}
+
+.btn-add i {
+    margin-right: 1rem; /* Espaciado derecho para el ícono */
+}
+
+/* Estilos para la botonera */
+.botonera {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.botonera i {
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    font-size: 1.5rem; /* Tamaño del ícono */
+    padding: 0 10px; /* Espaciado lateral */
+}
+
+/* Opcional: Cambiar el color de los íconos al pasar el mouse */
+.botonera i:hover {
+    color: #1572ff; /* Cambia el color al pasar el mouse */
+}
