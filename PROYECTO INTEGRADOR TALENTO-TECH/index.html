@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet">
+    <!-- Enlace a Google Fonts para la fuente Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dulce Alfajor</title> <!-- Título que aparecerá en la pestaña del navegador -->
+</head>
+<body>
+    <header>
+        <h1>Dulce Alfajor</h1> <!-- Encabezado principal del sitio -->
+        <label class="switch">
+            <input type="checkbox" id="input">
+            <span class="slider"></span>
+        </label> <!-- Botón para activar/desactivar el modo oscuro -->
+        <nav>
+            <ul>
+                <li><a href="pages/productos.html">Productos</a></li> <!-- Enlace a la sección de productos -->
+                <li><a href="pages/reseñas.html">Reseñas</a></li> <!-- Enlace a la sección de reseñas -->
+                <li><a href="pages/contacto.html">Contacto</a></li> <!-- Enlace a la sección de contacto -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+
+    <script>
+        // Función para aplicar el modo guardado en localStorage
+        function applySavedMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.add('dark-mode'));
+                document.querySelectorAll('form button').forEach(button => button.classList.add('dark-mode'));
+                document.getElementById('input').checked = true;
+            }
+        }
+    
+        // Aplicar el modo guardado al cargar la página
+        applySavedMode();
+    
+        // Evento para cambiar el modo y guardarlo en localStorage
+        document.getElementById('input').addEventListener('change', function() {
+            const isDarkMode = this.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
+            document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode));
+            document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode));
+            
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+    </script>    
+</body>
+</html>

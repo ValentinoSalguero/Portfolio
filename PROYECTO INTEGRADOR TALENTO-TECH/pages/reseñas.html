@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dulce Alfajor</title>
+</head>
+<body>
+    <header>
+        <h1>Dulce Alfajor</h1>
+        <label class="switch">
+            <input type="checkbox" id="input">
+            <span class="slider"></span>
+        </label> <!-- Botón para activar/desactivar el modo oscuro -->
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página principal -->
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="reseñas">
+            <h2>Reseñas</h2> <!-- Título de la sección de reseñas -->
+            <div class="grid-container">
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 00.png" alt="Juan Pérez">
+                    </div>
+                    <p>"¡Excelente servicio y calidad de productos!"</p>
+                    <h4>- Juan Pérez</h4>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 01.png" alt="Ana Gómez">
+                    </div>
+                    <p>"Me encantó la experiencia de compra. ¡Volveré!"</p>
+                    <h4>- Ana Gómez</h4>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 02.png" alt="Carlos Martínez">
+                    </div>
+                    <p>"Un lugar increíble con un personal muy amable."</p>
+                    <h4>- Carlos Martínez</h4>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 03.png" alt="María López">
+                    </div>
+                    <p>"Los productos son de alta calidad y llegan rápido."</p>
+                    <h4>- María López</h4>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 04.png" alt="Laura Torres">
+                    </div>
+                    <p>"Recomiendo este lugar a todos mis amigos :D"</p>
+                    <h4>- Laura Torres</h4>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 05.png" alt="Alberto Castillo">
+                    </div>
+                    <p>"La atención fue rápida y amable. ¡Muy recomendable!"</p>
+                    <h4>- Alberto Castillo</h4>
+                </div>  
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 06.png" alt="Sofía Ruiz">
+                    </div>
+                    <p>"Gran variedad de productos y una excelente experiencia de compra."</p>
+                    <h4>- Sofía Ruiz</h4>
+                </div> 
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <div class="review-img">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/reviews/Photo 07.png" alt="Miguel Hernández">
+                    </div>
+                    <p>"Los productos llegaron en perfectas condiciones."</p>
+                    <h4>- Miguel Hernández</h4>
+                </div>                
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+    <script>
+        // Función para aplicar el modo guardado en localStorage
+        function applySavedMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.add('dark-mode'));
+                document.querySelectorAll('form button').forEach(button => button.classList.add('dark-mode'));
+                document.getElementById('input').checked = true;
+            }
+        }
+    
+        // Aplicar el modo guardado al cargar la página
+        applySavedMode();
+    
+        // Evento para cambiar el modo y guardarlo en localStorage
+        document.getElementById('input').addEventListener('change', function() {
+            const isDarkMode = this.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
+            document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode));
+            document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode));
+            
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+    </script>
+</body>
+</html>
