@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/Proyecto Integrador/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>contacto</title>
+    <title>Contacto</title>
 </head>
 <body>
     <header>
         <h1>Dulce Alfajor</h1>
-        <button id="toggle-mode">Modo Oscuro</button> <!-- Botón para activar/desactivar el modo oscuro -->
+        <label class="switch">
+            <input type="checkbox" id="input">
+            <span class="slider"></span>
+        </label> <!-- Botón para activar/desactivar el modo oscuro -->
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página principal -->
@@ -44,5 +47,34 @@
     <footer>
         <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
     </footer>
+    <script>
+        // Función para aplicar el modo guardado en localStorage
+        function applySavedMode() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.querySelector('header').classList.add('dark-mode');
+                document.querySelector('footer').classList.add('dark-mode');
+                document.querySelectorAll('nav ul li a').forEach(link => link.classList.add('dark-mode'));
+                document.querySelectorAll('form button').forEach(button => button.classList.add('dark-mode'));
+                document.getElementById('input').checked = true;
+            }
+        }
+    
+        // Aplicar el modo guardado al cargar la página
+        applySavedMode();
+    
+        // Evento para cambiar el modo y guardarlo en localStorage
+        document.getElementById('input').addEventListener('change', function() {
+            const isDarkMode = this.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
+            document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode));
+            document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode));
+            
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+    </script>    
 </body>
 </html>

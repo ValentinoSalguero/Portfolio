@@ -6,8 +6,9 @@ body {
 }
 
 header {
-    background-color: #4e4e4e; /* Fondo oscuro para el encabezado */
-    color: white; /* Texto en blanco */
+position: relative;
+    background-color: #4e99b3; /* Fondo oscuro para el encabezado */
+    color: black; /* Texto en blanco */
     padding: 20px; /* Espaciado interno */
 }
 
@@ -22,7 +23,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white; /* Color de texto de enlaces */
+    color: black; /* Color de texto de enlaces */
     text-decoration: none; /* Elimina subrayado */
 }
 
@@ -31,8 +32,8 @@ section {
 }
 
 footer {
-    background-color: #4e4e4e; /* Fondo oscuro para el pie de página */
-    color: white; /* Texto en blanco */
+    background-color: #4e99b3; /* Fondo oscuro para el pie de página */
+    color: black; /* Texto en blanco */
     text-align: center; /* Centra el texto */
     padding: 10px; /* Espaciado interno */
 }
@@ -46,34 +47,17 @@ form label, form input, form textarea {
     margin: 10px 0; /* Margen vertical */
 }
 
+form input, form textarea, form button { /* Añadido form button */
+    width: 80%; /* Ancho igual para todos */
+    max-width: 400px; /* Ancho máximo igual para todos */
+}
+
 form button {
     background-color: #007bff; /* Fondo azul para el botón */
     color: white; /* Texto en blanco */
     border: none; /* Sin borde */
     padding: 10px; /* Espaciado interno */
     cursor: pointer; /* Cursor en forma de mano */
-}
-
-/* Estilos para el modo oscuro */
-body.dark-mode {
-    background-color: #2c2c2c; /* Fondo oscuro más claro que el header y footer */
-    color: white; /* Texto claro */
-}
-
-header.dark-mode {
-    background-color: #1a1a1a; /* Fondo más oscuro para el encabezado */
-}
-
-footer.dark-mode {
-    background-color: #1a1a1a; /* Fondo más oscuro para el pie de página */
-}
-
-nav ul li a.dark-mode {
-    color: white; /* Color blanco para enlaces en modo oscuro */
-}
-
-form button.dark-mode {
-    background-color: #0056b3; /* Azul más oscuro para el botón en modo oscuro */
 }
 
 /* Estilos para la sección de productos */
@@ -159,4 +143,149 @@ form button.dark-mode {
 /* Opcional: Cambiar el color de los íconos al pasar el mouse */
 .botonera i:hover {
     color: #1572ff; /* Cambia el color al pasar el mouse */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el texto */
+}
+
+.review-card h4 {
+    margin-top: 10px;
+    color: #555;
+}
+
+.review-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.review-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.switch {
+    position: absolute;
+    right: 20px; /* Alinea el switch a la derecha del header */
+    top: 20px; /* Ajusta la posición vertical */
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #9a86fd;
+    border-radius: 34px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider::before {
+    position: absolute;
+    content: '';
+    width: 26px;
+    height: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked+.slider {
+    background-color: #ffdb70;
+
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #ffdb70;
+}
+
+input:checked+.slider::before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background-color: #2c2c2c; /* Fondo oscuro más claro que el header y footer */
+    color: white; /* Texto claro */
+}
+
+header.dark-mode {
+    background-color: #004080; /* Fondo más oscuro para el encabezado */
+    color: white;
+}
+
+footer.dark-mode {
+    background-color: #004080; /* Fondo más oscuro para el pie de página */
+    color: white;
+}
+
+nav ul li a.dark-mode {
+    color: white; /* Color blanco para enlaces en modo oscuro */
+}
+
+form button.dark-mode {
+    background-color: #0056b3; /* Azul más oscuro para el botón en modo oscuro */
+}
+
+/* Estilos para el modo oscuro */
+.card-product.dark-mode {
+    border: 1px solid #444; /* Borde más oscuro para la card */
+    background-color: #3a3a3a; /* Fondo oscuro para la card */
+    color: white; /* Texto en blanco para mejor visibilidad */
+}
+
+/* Estilos para el texto dentro de la card en modo oscuro */
+.card-product.dark-mode h3,
+.card-product.dark-mode p,
+.card-product.dark-mode span,
+.btn-add {
+    color: white; /* Asegúrate de que el texto sea blanco en modo oscuro */
+}
+
+.card-product img {
+    filter: brightness(0.8); /* Ajusta el brillo para imágenes en modo oscuro */
+}
+
+/* Estilos para el modo oscuro en reseñas */
+body.dark-mode .review-card {
+    background-color: #3a3a3a; /* Fondo oscuro para la card */
+    color: white; /* Texto en blanco para mejor visibilidad */
+}
+
+body.dark-mode .review-card h4 {
+    color: #bbb; /* Color más claro para el nombre en modo oscuro */
 }
