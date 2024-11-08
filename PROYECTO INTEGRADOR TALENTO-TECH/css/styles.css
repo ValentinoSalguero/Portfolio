@@ -6,7 +6,7 @@ body {
 }
 
 header {
-position: relative;
+    position: relative;
     background-color: #4e99b3; /* Fondo oscuro para el encabezado */
     color: black; /* Texto en blanco */
     padding: 20px; /* Espaciado interno */
@@ -47,7 +47,7 @@ form label, form input, form textarea {
     margin: 10px 0; /* Margen vertical */
 }
 
-form input, form textarea, form button { /* Añadido form button */
+form input, form textarea, form button {
     width: 80%; /* Ancho igual para todos */
     max-width: 400px; /* Ancho máximo igual para todos */
 }
@@ -236,7 +236,6 @@ form button {
 
 input:checked+.slider {
     background-color: #ffdb70;
-
 }
 
 input:focus+.slider {
@@ -304,4 +303,70 @@ body.dark-mode .review-card {
 
 body.dark-mode .review-card h4 {
     color: #bbb; /* Color más claro para el nombre en modo oscuro */
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Móviles (hasta 600px) */
+@media (max-width: 600px) {
+    header {
+        padding: 10px;
+    }
+
+    .container-products {
+        grid-template-columns: 1fr; /* Solo una columna para productos */
+    }
+
+    .card-product {
+        width: 100%; /* Las cards ocupan todo el ancho disponible */
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Botón más grande en móviles */
+    }
+
+    .switch {
+        right: 10px;
+        top: 10px;
+    }
+
+    form input, form textarea, form button {
+        width: 90%;
+    }
+}
+
+/* Tabletas (entre 601px y 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container-products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta la cantidad de columnas */
+    }
+
+    .card-product {
+        width: 90%; /* Ancho de la card ajustado */
+        padding: 15px;
+    }
+
+    .btn {
+        width: 80%; /* Botón más pequeño que en móviles */
+    }
+
+    form input, form textarea, form button {
+        width: 85%;
+    }
+}
+
+/* Monitores (más de 1024px) */
+@media (min-width: 1025px) {
+    .container-products {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Varias columnas en pantallas grandes */
+    }
+
+    .card-product {
+        width: 250px; /* Card con un tamaño fijo */
+    }
+
+    .btn {
+        width: 70%;
+    }
 }
