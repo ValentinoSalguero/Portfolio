@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración para responsive design -->
+    <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet"> <!-- Enlace a la hoja de estilos principal -->
     <!-- Enlace a Google Fonts para la fuente Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Dulce Alfajor</title> <!-- Título que aparecerá en la pestaña del navegador -->
@@ -11,9 +11,9 @@
 <body>
     <header>
         <h1>Dulce Alfajor</h1> <!-- Encabezado principal del sitio -->
-        <label class="switch">
-            <input type="checkbox" id="input">
-            <span class="slider"></span>
+        <label class="switch"> <!-- Etiqueta para el interruptor de modo oscuro -->
+            <input type="checkbox" id="input"> <!-- Checkbox que activa o desactiva el modo oscuro -->
+            <span class="slider"></span> <!-- Estilo visual del interruptor -->
         </label> <!-- Botón para activar/desactivar el modo oscuro -->
         <nav>
             <ul>
@@ -25,9 +25,7 @@
     </header>
 
     <main>
-        
-
-        
+        <!-- Sección principal del contenido. Aquí puedes agregar más secciones o elementos según sea necesario. -->
     </main>
 
     <footer>
@@ -37,13 +35,16 @@
     <script>
         // Función para aplicar el modo guardado en localStorage
         function applySavedMode() {
+            // Comprueba si el modo oscuro está activado en localStorage
             const isDarkMode = localStorage.getItem('darkMode') === 'true';
             if (isDarkMode) {
+                // Si está activado, aplica las clases de modo oscuro a los elementos
                 document.body.classList.add('dark-mode');
                 document.querySelector('header').classList.add('dark-mode');
                 document.querySelector('footer').classList.add('dark-mode');
                 document.querySelectorAll('nav ul li a').forEach(link => link.classList.add('dark-mode'));
                 document.querySelectorAll('form button').forEach(button => button.classList.add('dark-mode'));
+                // Asegura que el checkbox esté marcado en modo oscuro
                 document.getElementById('input').checked = true;
             }
         }
@@ -53,13 +54,15 @@
     
         // Evento para cambiar el modo y guardarlo en localStorage
         document.getElementById('input').addEventListener('change', function() {
-            const isDarkMode = this.checked;
+            const isDarkMode = this.checked; // Obtiene el estado del checkbox
+            // Alterna las clases de modo oscuro en los elementos
             document.body.classList.toggle('dark-mode', isDarkMode);
             document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
             document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
             document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode));
             document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode));
             
+            // Guarda el estado del modo oscuro en localStorage
             localStorage.setItem('darkMode', isDarkMode);
         });
     </script>    
