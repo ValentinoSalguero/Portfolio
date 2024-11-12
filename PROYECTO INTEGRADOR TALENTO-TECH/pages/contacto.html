@@ -16,39 +16,72 @@
         </label> <!-- Botón para activar/desactivar el modo oscuro -->
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li> <!-- Enlace a la página principal -->
-                <li><a href="productos.html">Productos</a></li> <!-- Enlace a la sección de productos -->
-                <li><a href="reseñas.html">Reseñas</a></li> <!-- Enlace a la sección de reseñas -->
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="reseñas.html">Reseñas</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="contacto">
-            <h2>Contacto</h2> <!-- Título de la sección de contacto -->
-            <form action="https://formspree.io/f/meoqeoyg" method="POST"> <!-- Formulario que envía datos a Formspree -->
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required> <!-- Campo para el nombre -->
+            <h2>Contacto</h2>
+            <div class="form-map-container">
+                <!-- Formulario de contacto -->
+                <form action="https://formspree.io/f/meoqeoyg" method="POST" id="contactForm">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required aria-label="Nombre">
 
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" required> <!-- Campo para el apellido -->
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" required aria-label="Apellido">
 
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required> <!-- Campo para el correo electrónico -->
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required aria-label="Correo Electrónico">
 
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea> <!-- Área para el mensaje -->
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required aria-label="Mensaje"></textarea>
 
-                <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
-            </form>
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <!-- Mapa -->
+                <section id="mapa">
+                    <h3>Ubicación</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </section>
+            </div>
+
+            <!-- Mensaje de confirmación después de enviar el formulario -->
+            <div id="confirmacion" style="display:none;">
+                <p>¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.</p>
+            </div>
+        </section>
+
+        <!-- Información adicional de contacto -->
+        <section id="informacion">
+            <h3>Información Adicional</h3>
+            <p><strong>Correo Electrónico:</strong> contacto@dulcealfajor.com</p>
+            <p><strong>Teléfono:</strong> +123 456 789</p>
+            <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad Ejemplo</p>
+        </section>
+
+        <!-- Sección FAQ (opcional) -->
+        <section id="faq">
+            <h3>Preguntas Frecuentes</h3>
+            <ul>
+                <li><strong>¿Cuáles son los métodos de pago?</strong> Aceptamos tarjetas de crédito, débito y pagos por PayPal.</li>
+                <li><strong>¿En qué áreas hacen envíos?</strong> Realizamos envíos a toda la ciudad y alrededores.</li>
+                <li><strong>¿Cómo puedo hacer un pedido?</strong> Solo necesitas llenar el formulario de contacto y te responderemos con los detalles.</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p>
     </footer>
+
     <script>
-        // Función para aplicar el modo guardado en localStorage
+        // Función para aplicar el modo oscuro guardado en localStorage
         function applySavedMode() {
             const isDarkMode = localStorage.getItem('darkMode') === 'true'; // Verifica si el modo oscuro está guardado
             if (isDarkMode) {
@@ -60,21 +93,29 @@
                 document.getElementById('input').checked = true; // Marca el interruptor si el modo oscuro está activado
             }
         }
-    
-        // Aplicar el modo guardado al cargar la página
         applySavedMode();
-    
-        // Evento para cambiar el modo y guardarlo en localStorage
+
+        // Cambiar el modo y guardarlo en localStorage
         document.getElementById('input').addEventListener('change', function() {
-            const isDarkMode = this.checked; // Verifica si el interruptor está activado
-            document.body.classList.toggle('dark-mode', isDarkMode); // Cambia la clase de modo oscuro en el cuerpo
-            document.querySelector('header').classList.toggle('dark-mode', isDarkMode); // Cambia la clase de modo oscuro en el encabezado
-            document.querySelector('footer').classList.toggle('dark-mode', isDarkMode); // Cambia la clase de modo oscuro en el pie de página
-            document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode)); // Cambia la clase de modo oscuro en los enlaces de navegación
-            document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode)); // Cambia la clase de modo oscuro en los botones del formulario
-            
-            localStorage.setItem('darkMode', isDarkMode); // Guarda el estado del modo oscuro en localStorage
+            const isDarkMode = this.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
+            document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
+            document.querySelectorAll('nav ul li a').forEach(link => link.classList.toggle('dark-mode', isDarkMode));
+            document.querySelectorAll('form button').forEach(button => button.classList.toggle('dark-mode', isDarkMode));
+            localStorage.setItem('darkMode', isDarkMode);
         });
-    </script>    
+
+        // Mostrar mensaje de confirmación al enviar el formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevenir el envío por defecto
+            // Mostrar mensaje de confirmación
+            document.getElementById('contacto').style.display = 'none';
+            document.getElementById('confirmacion').style.display = 'block';
+            
+            // Resetear el formulario
+            e.target.reset();
+        });
+    </script>
 </body>
 </html>
