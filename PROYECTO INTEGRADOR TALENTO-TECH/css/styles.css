@@ -149,10 +149,14 @@ form button {
 }
 
 .btn-add {
-    background-color: #6f42c1; /* Fondo violeta en estado normal */
-    border: 1px solid #6f42c1; /* Borde violeta */
-    color: white; /* Texto en blanco */
-    border-radius: 8px; /* Bordes redondeados en todas las esquinas */
+    background-color: #6f42c1;
+    border: 1px solid #6f42c1;
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
 }
 
 .btn-add:hover {
@@ -317,5 +321,77 @@ body.dark-mode .review-card {
 }
 
 body.dark-mode .review-card h4 {
-    color: #bbb; /* Color más claro para el nombre en modo oscuro */
+    color: #bbb;
+}
+
+/* Estilos para los controles de cantidad */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones y la cantidad */
+    width: 100%;
+}
+
+.quantity-controls button {
+    width: 30px; /* Tamaño fijo de los botones */
+    height: 30px; /* Tamaño fijo de los botones */
+    border-radius: 50%; /* Botones redondeados */
+    background-color: #ffdb70;
+    color: #fff;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #ffb74d; /* Color al pasar el mouse */
+}
+
+.quantity-controls .quantity {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    width: 40px;
+    text-align: center;
+}
+
+.quantity-controls button:active {
+    background-color: #f57c00; /* Color cuando el botón es presionado */
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Móviles (hasta 600px) */
+@media (max-width: 600px) {
+    .switch {
+        width: 50px;
+        height: 30px;
+    }
+
+    .switch .slider::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .form-map-container {
+        flex-direction: column; /* En móviles, el formulario y el mapa estarán apilados */
+    }
+
+    #map {
+        height: 300px; /* Ajuste de altura del mapa */
+    }
+
+    .card-product {
+        width: 100%; /* Las tarjetas de productos tomarán todo el ancho */
+    }
+
+    .quantity-controls {
+        flex-direction: column;
+    }
+
+    .quantity-controls .quantity {
+        margin-bottom: 10px; /* Espacio adicional entre la cantidad y los botones */
+    }
 }
