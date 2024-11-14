@@ -41,7 +41,7 @@ footer {
 /* Flexbox para posicionar el formulario y el mapa a la derecha */
 .form-map-container {
     display: flex;
-    justify-content: space-between; /* Espacio entre el formulario y el mapa */
+    justify-content: space-between;
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -51,7 +51,7 @@ footer {
 form {
     display: flex;
     flex-direction: column;
-    flex: 1; /* El formulario tomará todo el espacio disponible */
+    flex: 1;
 }
 
 form label, form input, form textarea {
@@ -72,12 +72,12 @@ form button {
 }
 
 /* Mapa */
-#map {
-    flex: 1; /* El mapa tomará el resto del espacio disponible */
-    height: 500px; /* Definir una altura adecuada para el mapa en pantallas grandes */
+.map-iframe {
+    width: 600px; /* Tamaño predeterminado para pantallas grandes */
+    height: 450px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 100%; /* Hacer que el mapa no se estire más allá del contenedor */
+    max-width: 100%;
 }
 
 /* Estilos adicionales para el formulario */
@@ -174,8 +174,6 @@ form button {
 .btn-form {
     width: 50%;
 }
-
-
 
 .grid-container {
     display: grid;
@@ -329,14 +327,17 @@ body.dark-mode .review-card h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espacio entre los botones y la cantidad */
+    gap: 10px;
     width: 100%;
 }
 
 .quantity-controls button {
-    width: 30px; /* Tamaño fijo de los botones */
-    height: 30px; /* Tamaño fijo de los botones */
-    border-radius: 50%; /* Botones redondeados */
+    display: flex;           /* Activa Flexbox */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background-color: #ffdb70;
     color: #fff;
     font-size: 1.5em;
@@ -346,7 +347,7 @@ body.dark-mode .review-card h4 {
 }
 
 .quantity-controls button:hover {
-    background-color: #ffb74d; /* Color al pasar el mouse */
+    background-color: #ffb74d;
 }
 
 .quantity-controls .quantity {
@@ -358,7 +359,7 @@ body.dark-mode .review-card h4 {
 }
 
 .quantity-controls button:active {
-    background-color: #f57c00; /* Color cuando el botón es presionado */
+    background-color: #f57c00;
 }
 
 /* Media Queries para diferentes tamaños de pantalla */
@@ -376,15 +377,16 @@ body.dark-mode .review-card h4 {
     }
 
     .form-map-container {
-        flex-direction: column; /* En móviles, el formulario y el mapa estarán apilados */
+        flex-direction: column;
     }
 
-    #map {
-        height: 300px; /* Ajuste de altura del mapa */
+    .map-iframe {
+        width: 100%;
+        height: 300px;
     }
 
     .card-product {
-        width: 100%; /* Las tarjetas de productos tomarán todo el ancho */
+        width: 100%;
     }
 
     .quantity-controls {
@@ -392,6 +394,60 @@ body.dark-mode .review-card h4 {
     }
 
     .quantity-controls .quantity {
-        margin-bottom: 10px; /* Espacio adicional entre la cantidad y los botones */
+        margin-bottom: 10px;
+    }
+}
+
+/* Tablets (entre 600px y 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .switch {
+        width: 50px;
+        height: 30px;
+    }
+
+    .switch .slider::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .form-map-container {
+        flex-direction: column;
+    }
+
+    .map-iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .card-product {
+        width: 100%;
+    }
+
+    .card-product .price {
+        font-size: 1.2em;
+    }
+
+    .container-products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Pantallas grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    .card-product {
+        width: 250px;
+    }
+
+    .card-product .price {
+        font-size: 1.4em;
+    }
+
+    .form-map-container {
+        flex-direction: row;
+    }
+
+    .map-iframe {
+        width: 600px;
+        height: 450px;
     }
 }
