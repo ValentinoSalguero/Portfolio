@@ -6,6 +6,8 @@
     <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet"> <!-- Enlace a la hoja de estilos principal -->
     <!-- Enlace a Google Fonts para la fuente Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Dulce Alfajor</title> <!-- Título que aparecerá en la pestaña del navegador -->
 </head>
 <body>
@@ -15,6 +17,11 @@
             <input type="checkbox" id="input"> <!-- Checkbox que activa o desactiva el modo oscuro -->
             <span class="slider"></span> <!-- Estilo visual del interruptor -->
         </label> <!-- Botón para activar/desactivar el modo oscuro -->
+        <div class="header-btn-container">
+            <button class="btn-cart">
+                <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito de compras -->
+            </button>
+        </div> 
         <nav>
             <ul>
                 <li><a href="pages/productos.html">Productos</a></li> <!-- Enlace a la sección de productos -->
@@ -23,13 +30,53 @@
             </ul>
         </nav>
     </header>
-
+    
     <main>
-        <!-- Sección principal del contenido. Aquí puedes agregar más secciones o elementos según sea necesario. -->
+        <section>
+            <div class="index">
+                <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/marcasdealfajores.png" alt="Alfajores" class="index-img">
+                <div class="index-title">
+                    <p>Nos dedicamos a ofrecer alfajores de las mejores marcas, hechos por reconocidas compañías.</p>
+                </div>
+            </div>
+        </section>
+        <section class="intro">
+            <h2>Bienvenidos a Dulce Alfajor</h2>
+            <p>Disfruta de la variedad y calidad de nuestros alfajores, ideales para cualquier ocasión.</p>
+        </section>
+        <section class="carousel">
+            <h2>Productos Destacados</h2>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 05.png" class="d-block w-100" alt="Producto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 10.png" class="d-block w-100" alt="Producto 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 07.png" class="d-block w-100" alt="Producto 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>               
     </main>
 
     <footer>
         <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
     <script>
@@ -65,6 +112,7 @@
             // Guarda el estado del modo oscuro en localStorage
             localStorage.setItem('darkMode', isDarkMode);
         });
-    </script>    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

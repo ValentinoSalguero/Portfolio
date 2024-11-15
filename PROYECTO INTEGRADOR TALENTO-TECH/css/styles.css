@@ -5,11 +5,31 @@ body {
     padding: 0;
 }
 
+/* Contenedor de los botones dentro del header */
+.header-btn-container {
+    display: flex;
+    justify-content: flex-end;  /* Alinea el contenido a la derecha */
+    align-items: center;
+    width: 100%;
+}
+
+.btn-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 header {
-    position: relative;
     background-color: #4e99b3;
     color: black;
-    padding: 20px;
+    padding: 20px !important;
+    font-family: 'Roboto', sans-serif !important; /* Forzar la fuente */
+    font-size: 1.2em !important; /* Forzar el tamaño de fuente */
 }
 
 nav ul {
@@ -31,11 +51,118 @@ section {
     padding: 20px;
 }
 
+a i {
+    color: #007bff; /* Azul para modo claro */
+    transition: color 0.3s ease;
+}
+
 footer {
+    display: flex;
+    justify-content: center; /* Centra el contenido principal */
+    align-items: center;
+    position: relative; /* Permite posicionar los íconos sociales a la derecha */
     background-color: #4e99b3;
-    color: black;
+    color: black !important;
+    padding: 20px !important;
+    font-family: 'Roboto', sans-serif !important; /* Forzar la fuente */
+    font-size: 1.2em !important; /* Forzar el tamaño de fuente */
+}
+
+/* Estilos para la sección .index */
+.index {
+    background-color: #f0f8ff; /* Color de fondo suave que combina bien con el resto */
+    border-bottom: 0.5em solid #007bff; /* Un borde azul para mantener consistencia con el header */
+    padding: 20px;
+}
+
+.index-title {
+    display: flex;
+    justify-content: center;
+    padding: 2em 9em;
+}
+
+.index-title p {
+    color: #333; /* Texto oscuro para contraste */
+    background-color: #e0f7fa; /* Fondo suave en color aqua para combinar con el tema */
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #007bff; /* Bordes azules para alinear con el tema */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     text-align: center;
-    padding: 10px;
+}
+
+.index-img {
+    width: 100%;
+    height: 350px; /* Ajusta esta altura según lo que prefieras */
+    object-fit: cover;
+    border-radius: 8px;
+    border-bottom: 0.5em solid #007bff;
+    margin-top: 20px;
+}
+
+/* Estilo para imágenes */
+.index-img {
+    filter: brightness(0.95); /* Asegura que la imagen no sea demasiado brillante */
+}
+
+/* Estilos para la sección de bienvenida */
+.intro {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Estilos para el carousel */
+.carousel {
+    margin-top: 40px;
+    background-color: #f8f9fa; /* Fondo claro para la sección */
+    padding: 30px 0;
+    border-radius: 10px;
+}
+
+.carousel h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Ajustar el tamaño de las imágenes del carousel */
+/* Ajustar las imágenes del carousel para que se vean enteras pero no ocupen tanto espacio */
+.carousel-inner img {
+    width: 100%; /* Mantiene la imagen dentro del contenedor de ancho completo */
+    max-height: 400px; /* Limita la altura máxima de la imagen */
+    object-fit: contain; /* Mantiene la imagen completa, ajustada al contenedor sin recortarse */
+    margin: 0 auto; /* Centra la imagen dentro del contenedor */
+    display: block; /* Asegura que la imagen se comporta como un bloque */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #007bff; /* Color del ícono de navegación */
+}
+
+.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+    background-color: #0056b3; /* Color de hover para los íconos */
+}
+
+footer p.copyright {
+    margin: 0;
+    text-align: center;
 }
 
 /* Flexbox para posicionar el formulario y el mapa a la derecha */
@@ -322,6 +449,49 @@ body.dark-mode .review-card h4 {
     color: #bbb;
 }
 
+body.dark-mode footer .social-media a i {
+    color: #ffffff; /* Blanco para modo oscuro */
+}
+
+/* Modo oscuro - ajuste de los colores */
+body.dark-mode .index {
+    background-color: #333; /* Fondo oscuro para el modo oscuro */
+}
+
+body.dark-mode .index-title p {
+    background-color: #555; /* Fondo oscuro para el texto */
+    color: #fff; /* Texto claro en modo oscuro */
+    border: 1px solid #ffdb70; /* Borde dorado para modo oscuro */
+}
+
+body.dark-mode .index-img {
+    filter: brightness(0.6); /* Reduce el brillo de la imagen en modo oscuro */
+}
+
+/* Estilos para la sección de bienvenida (modo oscuro) */
+body.dark-mode .intro {
+    background-color: #333;  /* Fondo oscuro */
+    color: white;  /* Texto claro */
+}
+
+body.dark-mode .intro h2 {
+    color: #ffdb70; /* Un color más claro para el título */
+}
+
+/* Estilos para el carousel (modo oscuro) */
+body.dark-mode .carousel {
+    background-color: #3a3a3a; /* Fondo oscuro */
+    color: white; /* Texto claro */
+}
+
+body.dark-mode .carousel h2 {
+    color: #ffdb70; /* Título en un color más claro */
+}
+
+body.dark-mode .carousel-inner img {
+    filter: brightness(0.6); /* Reducir el brillo de las imágenes */
+}
+
 /* Estilos para los controles de cantidad */
 .quantity-controls {
     display: flex;
@@ -366,6 +536,12 @@ body.dark-mode .review-card h4 {
 
 /* Móviles (hasta 600px) */
 @media (max-width: 600px) {
+    .btn-cart {
+        padding: 8px 16px;
+        font-size: 14px;
+        width: auto; /* O adaptar al ancho del contenedor */
+    }
+
     .switch {
         width: 50px;
         height: 30px;
@@ -389,17 +565,51 @@ body.dark-mode .review-card h4 {
         width: 100%;
     }
 
-    .quantity-controls {
-        flex-direction: column;
-    }
-
     .quantity-controls .quantity {
         margin-bottom: 10px;
+    }
+
+    /* Estilos para carousel en móviles */
+    .carousel {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%; /* Cada ítem ocupa el 100% del ancho */
+        display: block;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
+    }
+
+    /* Estilos para el index en móviles */
+    .index-header {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    /* Estilos para la introducción en móviles */
+    .intro {
+        font-size: 1em;
+        padding: 10px;
     }
 }
 
 /* Tablets (entre 600px y 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
+    .btn-cart {
+        padding: 10px 18px;
+        font-size: 15px;
+        width: auto;
+    }
+
     .switch {
         width: 50px;
         height: 30px;
@@ -430,24 +640,108 @@ body.dark-mode .review-card h4 {
     .container-products {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-}
 
-/* Pantallas grandes (más de 1024px) */
-@media (min-width: 1025px) {
-    .card-product {
-        width: 250px;
+    /* Estilos para carousel en tablets */
+    .carousel {
+        width: 100%;
+        overflow: hidden;
     }
 
-    .card-product .price {
-        font-size: 1.4em;
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%; /* Cada ítem ocupa el 100% del ancho */
+        display: block;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
+    }
+
+    /* Estilos para el index en tablets */
+    .index-header {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    /* Estilos para la introducción en tablets */
+    .intro {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+}
+
+/* Dispositivos mayores a 1024px */
+@media (min-width: 1025px) {
+    .btn-cart {
+        padding: 10px 18px;
+        font-size: 15px;
+        width: auto;
+    }
+
+    .switch {
+        width: 50px;
+        height: 30px;
+    }
+
+    .switch .slider::before {
+        width: 20px;
+        height: 20px;
     }
 
     .form-map-container {
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .map-iframe {
-        width: 600px;
-        height: 450px;
+        width: 100%;
+        height: 300px;
+    }
+
+    .card-product {
+        width: 100%;
+    }
+
+    .card-product .price {
+        font-size: 1.2em;
+    }
+
+    .container-products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    /* Estilos para carousel en pantallas grandes */
+    .carousel {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%; /* Cada ítem ocupa el 100% del ancho */
+        display: block;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
+    }
+
+    /* Estilos para el index en pantallas grandes */
+    .index-header {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    /* Estilos para la introducción en pantallas grandes */
+    .intro {
+        font-size: 1.2em;
+        padding: 15px;
     }
 }
