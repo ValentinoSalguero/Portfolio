@@ -40,121 +40,45 @@ function updateQuantity(button, change) {
 
 if (document.getElementById('card-container')) {
     var products = [
-        {
-            title: "Alfajor Deuble Negro",
-            price: 1000,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 00.png",
-            description: "Alfajor Deuble Negro",
-        },
-        {
-            title: "Alfajor Simple Night",
-            price: 700,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 01.png",
-            description: "Alfajor Simple Night",
-        },
-        {
-            title: "Alfajor Genio",
-            price: 500,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 02.png",
-            description: "Alfajor Genio",
-        },
-        {
-            title: "Alfajor Guachoo Blanco",
-            price: 600,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 03.png",
-            description: "Alfajor Guachoo Blanco",
-        },
-        {
-            title: "Alfajor Happy Food",
-            price: 600,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 04.png",
-            description: "Alfajor Happy Food",
-        },
-        {
-            title: "Alfajor Guolis",
-            price: 900,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 05.png",
-            description: "Alfajor Guolis",
-        },
-        {
-            title: "Alfajor Cachafaz",
-            price: 1200,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 06.png",
-            description: "Alfajor Cachafaz",
-        },
-        {
-            title: "Alfajor Lule Muu",
-            price: 600,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 07.png",
-            description: "Alfajor Lule Muu",
-        },
-        {
-            title: "Alfajor Oreo Trilogía",
-            price: 1000,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 08.png",
-            description: "Alfajor Oreo Trilogía",
-        },
-        {
-            title: "Alfajor Full Maní",
-            price: 800,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 09.png",
-            description: "Alfajor Full Maní",
-        },
-        {
-            title: "Alfajor Café Martínez Blanco",
-            price: 700,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 10.png",
-            description: "Alfajor Café Martínez Blanco",
-        },
-        {
-            title: "Alfajor Smams",
-            price: 800,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 11.png",
-            description: "Alfajor Smams",
-        },
-        {
-            title: "Alfajor Café Martínez Negro",
-            price: 700,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 12.png",
-            description: "Alfajor Café Martínez Negro",
-        },
-        {
-            title: "Alfajor Capitán Del Espacio",
-            price: 900,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 13.png",
-            description: "Alfajor Capitán Del Espacio",
-        },
-        {
-            title: "Alfajor Rasta",
-            price: 800,
-            image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 14.png",
-            description: "Alfajor Rasta",
-        },
+        { title: "Alfajor Deuble Negro", price: 1000, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 00.png" },
+        { title: "Alfajor Simple Night", price: 700, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 01.png" },
+        { title: "Alfajor Genio", price: 500, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 02.png" },
+        { title: "Alfajor Guachoo Blanco", price: 600, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 03.png" },
+        { title: "Alfajor Happy Food", price: 600, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 04.png" },
+        { title: "Alfajor Guolis", price: 900, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 05.png" },
+        { title: "Alfajor Cachafaz", price: 1200, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 06.png" },
+        { title: "Alfajor Lule Muu", price: 600, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 07.png" },
+        { title: "Alfajor Oreo Trilogía", price: 1000, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 08.png" },
+        { title: "Alfajor Full Maní", price: 800, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 09.png" },
+        { title: "Alfajor Café Martínez Blanco", price: 700, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 10.png" },
+        { title: "Alfajor Smams", price: 800, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 11.png" },
+        { title: "Alfajor Café Martínez Negro", price: 700, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 12.png" },
+        { title: "Alfajor Capitán Del Espacio", price: 900, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 13.png" },
+        { title: "Alfajor Rasta", price: 800, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 14.png" },
+        { title: "Alfajor Guachoo Negro", price: 800, image: "/PROYECTO INTEGRADOR TALENTO-TECH/images/products/Photo 15.png" },
     ];
-
 
     var cardContainer = document.getElementById('card-container');
 
     for (var i = 0; i < products.length; i++) {
-        var cardDiv = document.createElement('div');
-        cardDiv.className = 'col-md-4 mb-4';
-        cardDiv.innerHTML = `
-                            <div class="card h-100">
-                                <img src="${products[i].image}" class="card-img-top" alt="${products[i].description}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${products[i].title}</h5>
-                                    <p class="price text-warning">$ ${products[i].price}</p>
-                                    <div class="quantity-controls d-flex justify-content-between align-items-center">
-                                        <button class="btn btn-danger btn-sm" onclick="updateQuantity(this, -1)">-</button>
-                                        <span class="quantity">0</span>
-                                        <button class="btn btn-info btn-sm" onclick="updateQuantity(this, 1)">+</button>
-                                    </div>
-                                    <button class="btn btn-primary w-100 mt-3">COMPRAR</button>
-                                </div>
-                            </div>
+        var productDiv = document.createElement('div');
+        productDiv.className = 'card-product flex';
+        productDiv.innerHTML = `
+            <div class="container-img">
+                <a href="#"><img src="${products[i].image}" alt="${products[i].title}"></a>
+            </div>
+            <div class="card-details">
+                <h3 class="card-product_title">${products[i].title}</h3>
+                <p class="price">$ ${products[i].price}</p>
+                <div class="quantity-controls">
+                    <button class="btn btn-danger btn-sm" onclick="updateQuantity(this, -1)">-</button>
+                    <span class="quantity">0</span>
+                    <button class="btn btn-info btn-sm" onclick="updateQuantity(this, 1)">+</button>
+                </div>
+                <button class="btn-add">COMPRAR</button>
+            </div>
         `;
-
-        cardContainer.appendChild(cardDiv);
+        cardContainer.appendChild(productDiv);
     };
 };
 
@@ -214,18 +138,14 @@ if (document.getElementById('grid-container')) {
 
     for (var i = 0; i < reviews.length; i++) {
         var gridDiv = document.createElement('div');
-        gridDiv.className = 'col-md-6 mb-4';
+        gridDiv.className = 'review-card';
         gridDiv.innerHTML = `
-                            <div class="card h-100 text-center">
-                                <div class="card-body">
-                                    <p class="stars">${reviews[i].stars}</p>
-                                <div class="review-img mb-3">
-                                <img src="${reviews[i].image}" alt="${reviews[i].author}" class="rounded-circle img-fluid" style="width: 100px; height: 100px;">
-                                </div>
-                                    <p class="card-text">"${reviews[i].text}"</p>
-                                    <h4 class="card-title">- ${reviews[i].author}</h4>
-                                </div>
+                            <p class="stars">⭐⭐⭐⭐⭐</p>
+                            <div class="review-img">
+                                <img src="${reviews[i].image}" alt="${reviews[i].author}">
                             </div>
+                            <p>"${reviews[i].text}"</p>
+                            <h4>- ${reviews[i].author}</h4>
         `;
 
         gridContainer.appendChild(gridDiv);
