@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/PROYECTO INTEGRADOR TALENTO-TECH/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dulce Alfajor</title>
+</head>
+<body>
+    <header>
+        <h1>Dulce Alfajor</h1>
+        <label class="switch">
+            <input type="checkbox" id="input">
+            <span class="slider"></span>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="reseñas.html">Reseñas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <h2 class="text-center">Carrito de Compras</h2>
+        <div class="row" id="productos-carrito">
+            <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card cart-summary">
+                    <div class="card-body">
+                        <h5 class="card-title">Resumen del Pedido</h5>
+                        <p class="card-text"><strong>Total:</strong> $<span id="total-pedido">0.00</span></p>
+                        <button class="btn checkout-btn w-100" onclick="finalizarCompra()">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal de éxito -->
+    <div id="modal-exito" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h2>Su pago se ha realizado con éxito.</h2>
+            <p>Disfrute sus alfajores.</p>
+        </div>
+    </div>
+
+    <!-- Aquí se podría incluir el contador del carrito -->
+    <div id="cart-count" class="cart-count">0</div> <!-- Muestra el contador de productos en el carrito -->
+
+    <script src="/PROYECTO INTEGRADOR TALENTO-TECH/js/scripts.js"></script>
+    <script src="/PROYECTO INTEGRADOR TALENTO-TECH/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
