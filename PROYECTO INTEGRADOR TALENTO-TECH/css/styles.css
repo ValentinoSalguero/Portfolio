@@ -333,46 +333,6 @@ form button {
     margin: 5px 15px;
 }
 
-/* Estilos para el modal */
-.modal {
-    display: none; /* El modal está oculto por defecto */
-    position: fixed;
-    z-index: 1; /* Asegura que el modal esté por encima de otros contenidos */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
-    padding-top: 100px;
-    text-align: center;
-}
-
-.modal-content {
-    background-color: lightblue !important;
-    margin: auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 400px;
-}
-
-.close-btn {
-    color: #aaa;
-    font-size: 22px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .switch {
     position: absolute;
     right: 20px;
@@ -426,6 +386,203 @@ input:checked+.slider::before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+/* Estilos generales para el carrito */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Oculto inicialmente */
+    width: 300px;
+    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    background-color: #f9f9f9;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow-y: auto; /* Asegura que el contenido pueda desplazarse */
+}
+
+/* Carrito activo */
+.cart-sidebar.active {
+    right: 0;
+}
+
+/* Botón de cierre */
+.cart-sidebar .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Contenido del carrito */
+.cart-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Permite el desplazamiento dentro del carrito */
+    max-height: calc(100vh - 60px); /* Ajusta la altura para que no se salga de la pantalla */
+}
+
+/* Ajusta los elementos de la lista para que no se desborden */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item .item-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cart-item .item-details h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cart-item .item-details p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.cart-summary {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#checkout-button {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color de texto blanco */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Centrado del texto */
+    font-size: 16px; /* Tamaño de texto */
+    cursor: pointer; /* Puntero al pasar sobre el botón */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+}
+
+#checkout-button:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.quantity-controls button {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 20px; /* Tamaño más pequeño */
+    height: 20px; /* Tamaño más pequeño */
+    background-color: lightblue; /* Color de fondo lightblue */
+    color: #fff;
+    font-size: 1.2em; /* Tamaño de texto más pequeño */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #87cefa; /* Un tono más claro de lightblue */
+}
+
+.quantity-controls .quantity {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    width: 40px;
+    text-align: center;
+}
+
+.quantity-controls button:active {
+    background-color: #4682b4; /* Un tono más oscuro de lightblue */
+}
+
+/* Estilo para el modal de éxito */
+.success-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.success-modal .modal-content {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 500px; 
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-modal .modal-content h1 {
+    font-size: 30px;
+    color: #000; 
+}
+
+.success-modal .modal-content p {
+    font-size: 24px;
+    color: #000; 
+}
+
+#close-success-modal {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Modo oscuro */
+body.dark-mode .cart-sidebar {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .cart-sidebar .close-btn {
+    color: #fff;
+}
+
+body.dark-mode .cart-item {
+    border-bottom: 1px solid #555;
+}
+
+body.dark-mode .cart-item .item-details h4,
+body.dark-mode .cart-item .item-details p {
+    color: #ddd;
 }
 
 /* Estilos para el modo oscuro */
@@ -522,79 +679,19 @@ body.dark-mode .carousel-inner img {
     filter: brightness(0.6);
 }
 
-/* Carrito en modo oscuro */
-.cart-container.dark-mode {
-    background-color: #3a3a3a !important;
-    border: 1px solid #444 !important;
-    color: white !important;
+/* Estilo para los botones en el modo oscuro */
+body.dark-mode .quantity-controls button {
+    background-color: #0056b3; /* Color de fondo en modo oscuro */
 }
 
-.cart-item.dark-mode {
-    border-bottom: 1px solid #555 !important;
+/* Efecto hover en el modo oscuro */
+body.dark-mode .quantity-controls button:hover {
+    background-color: #0069d9; /* Tono más claro de #0056b3 en modo oscuro */
 }
 
-.cart-item img.dark-mode {
-    filter: brightness(0.8) !important;
-}
-
-.cart-item-title.dark-mode {
-    color: white !important;
-}
-
-.cart-item-price.dark-mode {
-    color: #ffdb70 !important;
-}
-
-.cart-summary.dark-mode {
-    color: #fff !important;
-}
-
-.checkout-btn.dark-mode {
-    background-color: #ffdb70 !important;
-    color: #2c2c2c !important;
-}
-
-.checkout-btn.dark-mode:hover {
-    background-color: #e5c65b !important;
-}
-
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.quantity-controls button {
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ffdb70;
-    color: #fff;
-    font-size: 1.5em;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.quantity-controls button:hover {
-    background-color: #ffb74d;
-}
-
-.quantity-controls .quantity {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    width: 40px;
-    text-align: center;
-}
-
-.quantity-controls button:active {
-    background-color: #f57c00;
+/* Estilo activo en el modo oscuro */
+body.dark-mode .quantity-controls button:active {
+    background-color: #004085; /* Tono más oscuro en modo oscuro */
 }
 
 /* Media Queries para diferentes tamaños de pantalla */

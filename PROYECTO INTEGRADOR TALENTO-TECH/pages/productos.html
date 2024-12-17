@@ -20,7 +20,7 @@
             <span class="slider"></span>
         </label> <!-- Botón para activar/desactivar el modo oscuro -->
         <div class="header-btn-container">
-            <button class="btn-cart" onclick="window.location.href='carrito.html';">
+            <button id="open-cart" class="btn-cart">
                 <i class="fas fa-shopping-cart"></i> <!-- Ícono de carrito de compras -->
             </button>
         </div> 
@@ -43,6 +43,31 @@
             </div>
         </section>
     </main>
+
+    <!-- Carrito de compras -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Carrito de Compras</h2>
+            <button id="close-cart" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-container">
+            <!-- Aquí se llenarán dinámicamente los productos del carrito -->
+        </div>
+        <div class="cart-footer">
+            <button id="checkout-button">
+                Finalizar Compra
+            </button>
+        </div>
+    </div>    
+
+    <!-- Modal de éxito -->
+    <div id="success-modal" class="success-modal">
+        <div class="modal-content">
+            <h1>¡Compra Realizada con éxito!</h1>
+            <p>Gracias por su compra</p>
+            <button id="close-success-modal">Cerrar</button>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 Dulce Alfajor. Todos los derechos reservados.</p>
