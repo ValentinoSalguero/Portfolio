@@ -52,6 +52,7 @@ var reviews = [
 
 var gridContainer = document.getElementById('grid-container');
 
+// Iterar sobre el arreglo de reseñas y crear los elementos de la interfaz
 for (var i = 0; i < reviews.length; i++) {
     var gridDiv = document.createElement('div');
     gridDiv.className = 'review-card';

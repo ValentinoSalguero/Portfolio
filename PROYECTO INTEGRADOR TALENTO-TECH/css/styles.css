@@ -1,4 +1,3 @@
-
 /* Estilos generales sin modo oscuro */
 body {
     font-family: 'Roboto', sans-serif;
@@ -388,13 +387,12 @@ input:checked+.slider::before {
     transform: translateX(26px);
 }
 
-/* Estilos generales para el carrito */
 .cart-sidebar {
     position: fixed;
     top: 0;
-    right: -100%; /* Oculto inicialmente */
-    width: 300px;
-    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    right: -100%;
+    width: 350px;
+    height: 100vh;
     background-color: #f9f9f9;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease-in-out;
@@ -402,32 +400,43 @@ input:checked+.slider::before {
     display: flex;
     flex-direction: column;
     z-index: 1000;
-    overflow-y: auto; /* Asegura que el contenido pueda desplazarse */
+    overflow-y: auto;
 }
 
-/* Carrito activo */
 .cart-sidebar.active {
     right: 0;
 }
 
-/* Botón de cierre */
-.cart-sidebar .close-btn {
+.cart-sidebar .close-cart {
     align-self: flex-end;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+    background: #f8d7da; 
+    border: 2px solid #f5c2c7; 
+    font-size: 1rem;
     cursor: pointer;
-    color: #333;
+    color: #721c24; 
+    padding: 0.2rem 0.5rem; 
+    border-radius: 4px; 
+    width: auto; 
+    height: auto;
+    transition: background 0.3s ease, transform 0.2s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* Contenido del carrito */
+.cart-sidebar .close-cart:hover {
+    background: #f5c6cb; 
+    transform: scale(1.05); 
+}
+
+.cart-sidebar .close-cart:active {
+    transform: scale(0.9);
+}
+
 .cart-content {
     flex-grow: 1;
-    overflow-y: auto; /* Permite el desplazamiento dentro del carrito */
-    max-height: calc(100vh - 60px); /* Ajusta la altura para que no se salga de la pantalla */
+    overflow-y: auto; 
+    max-height: calc(100vh - 60px); 
 }
 
-/* Ajusta los elementos de la lista para que no se desborden */
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -467,20 +476,20 @@ input:checked+.slider::before {
 }
 
 #checkout-button {
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color de texto blanco */
-    padding: 15px 32px; /* Espaciado interno */
-    text-align: center; /* Centrado del texto */
-    font-size: 16px; /* Tamaño de texto */
-    cursor: pointer; /* Puntero al pasar sobre el botón */
-    border: none; /* Sin borde */
-    border-radius: 8px; /* Bordes redondeados */
-    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 #checkout-button:hover {
-    background-color: #45a049; /* Color de fondo más oscuro al pasar el ratón */
+    background-color: #45a049;
 }
 
 .quantity-controls {
@@ -493,20 +502,20 @@ input:checked+.slider::before {
 
 .quantity-controls button {
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    width: 20px; /* Tamaño más pequeño */
-    height: 20px; /* Tamaño más pequeño */
-    background-color: lightblue; /* Color de fondo lightblue */
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background-color: lightblue;
     color: #fff;
-    font-size: 1.2em; /* Tamaño de texto más pequeño */
+    font-size: 1.2em;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .quantity-controls button:hover {
-    background-color: #87cefa; /* Un tono más claro de lightblue */
+    background-color: #87cefa;
 }
 
 .quantity-controls .quantity {
@@ -518,12 +527,11 @@ input:checked+.slider::before {
 }
 
 .quantity-controls button:active {
-    background-color: #4682b4; /* Un tono más oscuro de lightblue */
+    background-color: #4682b4; 
 }
 
-/* Estilo para el modal de éxito */
 .success-modal {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -679,19 +687,54 @@ body.dark-mode .carousel-inner img {
     filter: brightness(0.6);
 }
 
-/* Estilo para los botones en el modo oscuro */
 body.dark-mode .quantity-controls button {
-    background-color: #0056b3; /* Color de fondo en modo oscuro */
+    background-color: #0056b3;
 }
 
-/* Efecto hover en el modo oscuro */
 body.dark-mode .quantity-controls button:hover {
-    background-color: #0069d9; /* Tono más claro de #0056b3 en modo oscuro */
+    background-color: #0069d9;
 }
 
-/* Estilo activo en el modo oscuro */
 body.dark-mode .quantity-controls button:active {
-    background-color: #004085; /* Tono más oscuro en modo oscuro */
+    background-color: #004085;
+}
+
+body.dark-mode .quantity-controls .quantity {
+    color: #fff;
+}
+
+body.dark-mode .success-modal .modal-content {
+    background-color: #3a3a3a;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+body.dark-mode .success-modal .modal-content h1 {
+    font-size: 30px;
+    color: #ffdb70;
+}
+
+body.dark-mode .success-modal .modal-content p {
+    font-size: 24px;
+    color: #ccc;
+}
+
+body.dark-mode #close-success-modal {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #close-success-modal:hover {
+    background-color: #0069d9;
+}
+
+body.dark-mode #close-success-modal:active {
+    background-color: #004085;
 }
 
 /* Media Queries para diferentes tamaños de pantalla */
