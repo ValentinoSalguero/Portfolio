@@ -1,7 +1,7 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Función para agregar un producto al carrito
-function addToCart(index, title, price, image) {
+function addToCart(title, price, image) {
     let cartItem = cart.find(item => item.title === title);
     if (cartItem) {
         cartItem.quantity += 1;

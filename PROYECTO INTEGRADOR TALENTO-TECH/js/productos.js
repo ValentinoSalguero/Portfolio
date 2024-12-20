@@ -1,94 +1,103 @@
-// Obtener productos desde la API
-fetch('https://dummyjson.com/products?limit=48')
-.then(response => response.json())
-.then(data => {
-    var cardContainer = document.getElementById('card-container');
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+document.addEventListener("DOMContentLoaded", () => {
+    const cardContainer = document.getElementById('card-container');
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const pageInfo = document.getElementById("page-info");
 
-    // Crear y mostrar los productos en la página
-    data.products.forEach((product, index) => {
+    const limit = 20;
+    let currentPage = 1;
+    let totalProductos = 0;
 
-        const price = product.price.toFixed(2);
+    let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-        var productDiv = document.createElement('div');
-        productDiv.className = 'card-product flex';
-        productDiv.innerHTML = `
-            <div class="container-img">
-                <img src="${product.images[0]}" alt="${product.title}">
-            </div>
-            <div class="card-details">
-                <h3 class="card-product_title">${product.title}</h3>
-                <p class="price">$ ${price}</p>
-                <button class="btn-add" onclick="addToCart(${index}, '${product.title}', ${price}, '${product.images[0]}');">COMPRAR</button>
-            </div>
-        `;
-        cardContainer.appendChild(productDiv);
+    // Cargar productos según la página actual
+    function fetchProductos(page) {
+        const skip = (page - 1) * limit;
 
-        // Aplicar el estilo para el modo oscuro
-        if (isDarkMode) {
-            productDiv.classList.add('dark-mode');
-            let priceElement = productDiv.querySelector('.price');
-            if (priceElement) {
-                priceElement.classList.add('dark-mode');
-            }
-        }
-    });
-})
-.catch(error => console.error('Error al cargar los productos:', error));
+        fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
+        .then(response => response.json())
+        .then(data => {
+            totalProductos = data.total;
+            const productos = data.products;
 
-// Función para agregar un producto al carrito
-function addToCart(index, title, price, image) {
-    console.log("Producto añadido:", { index, title, price, image });
+            cardContainer.innerHTML = '';
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let cartItem = cart.find(item => item.title === title);
+            productos.forEach(product => {
+                const price = product.price.toFixed(2);
 
-    if (cartItem) {
-        cartItem.quantity += 1;
-    } else {
-        cart.push({ title, price, image, quantity: 1 });
+                let productDiv = document.createElement('div');
+                productDiv.className = 'card-product flex';
+                productDiv.innerHTML = `
+                    <div class="container-img">
+                        <img src="${product.images[0]}" alt="${product.title}">
+                    </div>
+                    <div class="card-details">
+                        <h3 class="card-product_title">${product.title}</h3>
+                        <p class="price">$ ${price}</p>
+                        <button class="btn-add" onclick="addToCart('${product.title}', ${price}, '${product.images[0]}');">COMPRAR</button>
+                    </div>
+                `;
+                cardContainer.appendChild(productDiv);
+            });
+
+            // Aplicar el modo oscuro a las tarjetas cargadas
+            applyDarkModeToCards();
+
+            pageInfo.textContent = currentPage;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = (currentPage * limit) >= totalProductos;
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
     }
 
-    console.log("Carrito actualizado:", cart); // Depurar carrito actualizado
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartDisplay();  // Actualiza la vista del carrito
-    document.getElementById("cart-sidebar").classList.add("active");
-}
+    // Aplicar o quitar el modo oscuro de las tarjetas cargadas
+    function applyDarkModeToCards() {
+        const cardProducts = document.querySelectorAll('.card-product');
+        cardProducts.forEach(card => {
+            if (isDarkMode) {
+                card.classList.add('dark-mode');
+                let priceElement = card.querySelector('.price');
+                if (priceElement) {
+                    priceElement.classList.add('dark-mode');
+                }
+            } else {
+                card.classList.remove('dark-mode');
+                let priceElement = card.querySelector('.price');
+                if (priceElement) {
+                    priceElement.classList.remove('dark-mode');
+                }
+            }
+        });
+    }
 
-// Función para actualizar la visualización del carrito
-function updateCartDisplay() {
-    const cartContainer = document.getElementById('cart-container');
-    cartContainer.innerHTML = ''; // Limpiar contenido
+    // Cambiar entre modo oscuro y claro cuando el checkbox es marcado o desmarcado
+    document.getElementById('input').addEventListener('change', function () {
+        isDarkMode = this.checked;
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let total = 0;
+        // Guardar la preferencia en el almacenamiento local
+        localStorage.setItem('darkMode', isDarkMode);
+        applyDarkModeToCards(); // Aplicar el modo oscuro a las tarjetas
 
-    cart.forEach((item, index) => {
-        const itemTotal = (item.price * item.quantity).toFixed(2);
-        total += item.price * item.quantity;
-
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('cart-item');
-        itemDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="img">
-            <div class="item-details">
-                <h4>${item.title}</h4>
-                <p>$${item.price.toFixed(2)}</p>
-            </div>
-            <div class="quantity-controls">
-                <button class="btn btn-danger btn-sm" onclick="updateCartQuantity(${index}, -1)">-</button>
-                <span class="quantity">${item.quantity}</span>
-                <button class="btn btn-info btn-sm" onclick="updateCartQuantity(${index}, 1)">+</button>
-            </div>
-            <div class="cart-summary">
-                <p>$${itemTotal}</p>
-            </div>
-        `;
-        cartContainer.appendChild(itemDiv);
+        // Cambiar el estilo de los elementos del documento según el modo
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        document.querySelector('header').classList.toggle('dark-mode', isDarkMode);
+        document.querySelector('footer').classList.toggle('dark-mode', isDarkMode);
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => link.classList.toggle('dark-mode', isDarkMode)); 
     });
 
-    const totalDiv = document.createElement('div');
-    totalDiv.classList.add('cart-total');
-    totalDiv.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
-    cartContainer.appendChild(totalDiv);
-}
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchProductos(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if ((currentPage * limit) < totalProductos) {
+            currentPage++;
+            fetchProductos(currentPage);
+        }
+    });
+
+    fetchProductos(currentPage);
+});
