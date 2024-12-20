@@ -57,11 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Lógica para mostrar y cerrar el modal de éxito al finalizar la compra
 document.getElementById('checkout-button').addEventListener('click', function() {
+    const successModal = document.getElementById("success-modal");
     successModal.style.display = 'flex';
     document.getElementById("cart-sidebar").classList.remove("active");
 });
 
+const closeSuccessModalButton = document.getElementById("close-success-modal");  
+
 // Cerrar el modal de éxito al hacer clic en el botón "Cerrar"
 closeSuccessModalButton.addEventListener('click', function() {
+    const successModal = document.getElementById("success-modal");
     successModal.style.display = 'none';
 });
