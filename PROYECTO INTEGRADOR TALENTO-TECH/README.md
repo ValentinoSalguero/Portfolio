@@ -47,7 +47,5 @@ El proyecto se organiza en las siguientes áreas clave:
 - El proyecto se encuentra desplegado en **Netlify** para su visualización pública.
 - El código fuente está versionado en **GitHub**, con un historial de commits que documenta el progreso y los cambios.
 
-## Enlaces de Entrega
-
+### Enlaces
 - [Enlace a Netlify](https://dulce-alfajor2.netlify.app/)
-- [Enlace a GitHub](https://github.com/ValentinoSalguero/Portfolio/tree/main/PROYECTO%20INTEGRADOR%20TALENTO-TECH)
