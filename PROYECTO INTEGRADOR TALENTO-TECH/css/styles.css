@@ -273,7 +273,7 @@ form button {
 
 .d-flex {
     display: flex !important;
-    justify-content: center !important; /* Centra los botones y el número de página */
+    justify-content: center !important; 
     align-items: center !important;
     margin: 20px 0 !important;
 }
@@ -854,6 +854,61 @@ body.dark-mode .cart-item .item-details p {
 
 /* Móviles (hasta 600px) */
 @media (max-width: 600px) {
+    .switch {
+        position: absolute;
+        right: 20px;  
+        top: 20px;    
+        display: inline-block;
+        width: 50px;  
+        height: 30px; 
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #9a86fd;
+        border-radius: 30px; 
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .slider::before {
+        position: absolute;
+        content: '';
+        width: 22px;  
+        height: 22px;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: #fff;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    input:checked + .slider {
+        background-color: #ffdb70;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #ffdb70;
+    }
+
+    input:checked + .slider::before {
+        -webkit-transform: translateX(20px);  
+        -ms-transform: translateX(20px);     
+        transform: translateX(20px);          
+    }
+
     .cart-sidebar {
         width: 30%;
         right: -100%;
@@ -997,23 +1052,99 @@ body.dark-mode .cart-item .item-details p {
     }
 
     .navbar {
-        padding: 10px 20px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        background-color: #4e99b3 !important;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        background-color: #4e99b3 !important;
+    }
+
+    .navbar-nav {
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .nav-item {
         display: inline-block !important;
         margin-right: 10px !important;
-        margin-bottom: 10px !important; 
+        margin-bottom: 10px !important;
     }
 
     .nav-link {
         font-size: 14px !important;
         padding: 5px 10px !important;
     }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
 }
 
 /* Tablets (entre 600px y 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
+    .switch {
+        position: absolute;
+        right: 20px; 
+        top: 20px;   
+        display: inline-block;
+        width: 55px;  
+        height: 32px; 
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #9a86fd;
+        border-radius: 32px; 
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .slider::before {
+        position: absolute;
+        content: '';
+        width: 24px; 
+        height: 24px; 
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: #fff;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    input:checked + .slider {
+        background-color: #ffdb70;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #ffdb70;
+    }
+
+    input:checked + .slider::before {
+        -webkit-transform: translateX(23px); 
+        -ms-transform: translateX(23px);   
+        transform: translateX(23px);         
+    }
+
     .cart-sidebar {
         width: 40%; 
         right: -100%;
@@ -1161,17 +1292,39 @@ body.dark-mode .cart-item .item-details p {
     }
 
     .navbar {
-        padding: 10px 30px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        background-color: #4e99b3 !important;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+        background-color: #4e99b3 !important;
+    }
+
+    .navbar-nav {
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .nav-item {
         display: inline-block !important;
-        margin-right: 20px !important;
+        margin-right: 10px !important;
+        margin-bottom: 10px !important;
     }
 
     .nav-link {
-        font-size: 16px !important;
-        padding: 8px 15px !important; 
+        font-size: 14px !important;
+        padding: 5px 10px !important;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 }
 

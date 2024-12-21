@@ -1,46 +1,52 @@
-# Proyecto Final - Pre-Entrega
+# Proyecto Integrador
 
 ## Descripción del Proyecto
 
-Este proyecto consiste en el desarrollo de una página web funcional y responsiva, diseñada para ofrecer una experiencia de usuario agradable y fácil de navegar. La página incluye varias secciones: **Inicio**, **Productos**, **Reseñas** y **Contacto**. El propósito de este proyecto es demostrar la implementación de HTML, CSS, diseño responsivo, formularios funcionales y navegación interna, utilizando herramientas como **Flexbox** y **Grid**.
+Este proyecto consiste en el desarrollo de un **sitio web de e-commerce** interactivo y dinámico, diseñado para ofrecer una experiencia de usuario agradable. La página incluye varias secciones, como **Inicio**, **Productos**, **Reseñas**, **Contacto** y un **Carrito de Compras**. El objetivo es demostrar el uso de tecnologías como **HTML**, **CSS**, **JavaScript**, y el consumo de datos desde una **API REST**. Además, se implementaron funcionalidades interactivas como la manipulación del DOM y el uso de **localStorage** para el carrito de compras.
 
 ## Estructura del Proyecto
 
-El proyecto está organizado en las siguientes secciones principales:
+El proyecto se organiza en las siguientes áreas clave:
 
-- **HTML**: Contiene la estructura básica de la página, organizada de manera semántica con etiquetas como `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`.
-- **CSS**: Estilos aplicados a cada sección del proyecto, incluyendo diseño responsivo con Flexbox y Grid, y uso de fuentes de Google Fonts.
-- **Formulario de Contacto**: Implementación de un formulario funcional utilizando Formspree para el envío de datos.
-- **Contenido Multimedia**: Imágenes y otros recursos multimedia integrados correctamente en el proyecto.
+- **HTML**: Se utilizó una estructura semántica, utilizando etiquetas como `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`.
+- **CSS**: Se aplicaron estilos básicos y avanzados, incluyendo diseño responsivo con **Flexbox** y **Grid**. Se utilizaron **Google Fonts** para la tipografía.
+- **JavaScript**: Se incorporó la manipulación del DOM para gestionar dinámicamente los productos y el carrito de compras.
+- **API REST**: Se consumieron datos de una API pública utilizando **fetch** para obtener y mostrar productos en el sitio.
+- **Carrito de Compras**: Implementación de un carrito de compras que permite a los usuarios añadir productos, modificar cantidades y eliminar elementos, utilizando **localStorage** para persistir la información después de recargar la página.
 
 ## Requisitos Cumplidos
 
-### 1. **Estructura Básica de HTML**
-- Se ha utilizado una estructura semántica con las etiquetas necesarias (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
-- Incluye un archivo **README.md** que explica el propósito de la página.
+### Estructura Básica HTML
+- Se estructuró la página utilizando etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
+- Se incluyó un archivo **README.md** explicando el propósito y detalles del proyecto.
 
-### 2. **Formulario de Contacto**
-- El formulario de contacto incluye los campos de nombre, correo electrónico y mensaje.
-- Se utiliza **Formspree** para manejar el envío de los datos del formulario.
+### Contenido Multimedia y Navegación
+- Se integraron imágenes y otros recursos multimedia en la página.
+- Implementación de una lista desordenada con enlaces que simula la navegación interna (Inicio, Productos, Contacto).
 
-### 3. **Estilos Básicos Aplicados con CSS**
-- Estilos aplicados a las secciones de `header`, `footer` y la lista de navegación.
-- Fuentes de **Google Fonts** implementadas correctamente.
-- Fondo de la página con propiedades de **background**.
+### Estilos y Diseño
+- Estilos aplicados a las secciones de la página, incluyendo el uso de **Flexbox** para la sección de productos y **Grid** para reseñas.
+- Uso de **Media Queries** para asegurar que el diseño sea responsivo y se ajuste a diferentes tamaños de pantalla.
+- Se utilizó el **Modelo de Caja** para aplicar márgenes, rellenos y bordes a los elementos.
 
-### 4. **Diseño Responsivo con Flexbox y Grid**
-- La sección de **Productos** está organizada en tarjetas utilizando **Flexbox**.
-- La sección de **Reseñas** utiliza **Grid** para una distribución estética y ordenada.
-- La sección **Contacto** es completamente responsiva con **Media Queries**.
+### Funcionalidad JavaScript
+- Implementación de una función que verifique si todos los campos del formulario de contacto están completos.
+- Creación de una función que genera dinámicamente una lista de productos disponibles.
+- Implementación de eventos **click** para mostrar la descripción ampliada de un producto.
 
-### 5. **Contenido Multimedia y Navegación**
-- Se incluyen imágenes y otros recursos multimedia correctamente integrados.
-- La lista de navegación está implementada utilizando una lista desordenada con enlaces internos (Inicio, Productos, Contacto).
+### Asincronía y Consumo de API REST
+- Se utilizó **fetch** para obtener datos de una API pública y mostrarlos en la sección de productos.
+- Los productos obtenidos se organizan en **cards** usando **Flexbox** para mantener la coherencia en el diseño.
 
-### 6. **Subida del Proyecto**
-- El proyecto está hospedado en **Netlify**, con una URL funcional para la visualización.
+### Carrito de Compras
+- El carrito permite añadir, modificar y eliminar productos, manteniendo la información persistente en **localStorage**.
+- Se asegura que la información del carrito se conserve incluso después de recargar la página.
+
+### Implementación y Despliegue
+- El proyecto se encuentra desplegado en **Netlify** para su visualización pública.
+- El código fuente está versionado en **GitHub**, con un historial de commits que documenta el progreso y los cambios.
 
 ## Enlaces de Entrega
 
-- https://drive.google.com/drive/folders/1oT5Yy21kP8o5wWPjixHKwrsIwfTPd0dt?usp=drive_link
-- https://dulce-alfajor2.netlify.app/
+- [Enlace a Netlify](https://dulce-alfajor2.netlify.app/)
+- [Enlace a GitHub](https://github.com/usuario/proyecto-integrador)
