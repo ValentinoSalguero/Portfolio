@@ -30,9 +30,10 @@ El proyecto se organiza en las siguientes áreas clave:
 - Se utilizó el **Modelo de Caja** para aplicar márgenes, rellenos y bordes a los elementos.
 
 ### Funcionalidad JavaScript
-- Implementación de una función que verifique si todos los campos del formulario de contacto están completos.
 - Creación de una función que genera dinámicamente una lista de productos disponibles.
-- Implementación de eventos **click** para mostrar la descripción ampliada de un producto.
+- Implementación de una función para aplicar el modo oscuro basado en la preferencia guardada en el `localStorage`.
+- Cambio dinámico entre modo claro y oscuro, afectando elementos como `header`, `footer`, botones, productos, y otros componentes de la página.
+- Almacenamiento de la preferencia de modo oscuro en `localStorage` para mantener la configuración entre sesiones. 
 
 ### Asincronía y Consumo de API REST
 - Se utilizó **fetch** para obtener datos de una API pública y mostrarlos en la sección de productos.
@@ -49,4 +50,4 @@ El proyecto se organiza en las siguientes áreas clave:
 ## Enlaces de Entrega
 
 - [Enlace a Netlify](https://dulce-alfajor2.netlify.app/)
-- [Enlace a GitHub](https://github.com/usuario/proyecto-integrador)
+- [Enlace a GitHub](https://github.com/ValentinoSalguero/Portfolio/tree/main/PROYECTO%20INTEGRADOR%20TALENTO-TECH)
